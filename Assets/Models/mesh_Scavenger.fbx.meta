@@ -1,0 +1,177 @@
+fileFormatVersion: 2
+guid: 61cf06c7f4748ae40b44c31c582002ab
+timeCreated: 1524429368
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: mesh_Scavenger
+    100002: //RootNode
+    100004: Scavenger metarig
+    100006: spine.003
+    100008: spine.004
+    100010: spine.005
+    100012: spine.006
+    100014: spine.007
+    100016: spine.009
+    100018: spine.009_end
+    100020: spine.010
+    100022: spine.010_end
+    100024: Wing.001.L
+    100026: Wing.001.R
+    100028: Wing.002.L
+    100030: Wing.002.L_end
+    100032: Wing.002.R
+    100034: Wing.002.R_end
+    100036: Wing.L
+    100038: Wing.R
+    400000: //RootNode
+    400002: mesh_Scavenger
+    400004: Scavenger metarig
+    400006: spine.003
+    400008: spine.004
+    400010: spine.005
+    400012: spine.006
+    400014: spine.007
+    400016: spine.009
+    400018: spine.009_end
+    400020: spine.010
+    400022: spine.010_end
+    400024: Wing.001.L
+    400026: Wing.001.R
+    400028: Wing.002.L
+    400030: Wing.002.L_end
+    400032: Wing.002.R
+    400034: Wing.002.R_end
+    400036: Wing.L
+    400038: Wing.R
+    2100000: No Name
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: mesh_Scavenger
+    7400000: Scavenger metarig|DELETE.001
+    7400002: Scavenger metarig|DELETE.002
+    7400004: Scavenger metarig|DELETE.003
+    7400006: Scavenger metarig|DELETE.004
+    7400008: Scavenger metarig|DELETE.005
+    7400010: Scavenger metarig|DELETE.006
+    7400012: Scavenger metarig|DELETE.007
+    7400014: Scavenger metarig|DELETE
+    7400016: Scavenger metarig|DELETE.008
+    7400018: Scavenger metarig|mesh_Ushebty_SwordAction
+    7400020: Scavenger metarig|Scavenger_Fly
+    9500000: //RootNode
+    13700000: mesh_Scavenger
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 9d2ad7fee3e58104cbedd9ea6aaa149a, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Scavenger metarig|Scavenger_Fly
+      takeName: Scavenger metarig|Scavenger_Fly
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 0
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
