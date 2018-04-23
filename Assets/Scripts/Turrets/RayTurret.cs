@@ -4,8 +4,9 @@ namespace Assets.Scripts.Turrets
 {
     [RequireComponent(typeof(Turret))]
     [RequireComponent(typeof(Aoe))]
-    public class RayTurret : MonoBehaviour {
-
+    public class RayTurret : MonoBehaviour
+    {
+        public Vector3 SourcePoint;
         public GameObject Ray;
 
         private Turret _turret;
@@ -31,8 +32,15 @@ namespace Assets.Scripts.Turrets
             var ray = rayObj.GetComponent<Ray>();
             if (ray != null)
             {
-                ray.SetPath(_aoe.ActivePath, _aoe);
+                var path = _aoe.ActivePath.ToArray();
+                path[0] = transform.TransformPoint(SourcePoint);
+                ray.SetPath(path, _aoe);
             }
+        }
+
+        void OnDrawGizmosSelected()
+        {
+            Gizmos.DrawSphere(transform.TransformPoint(SourcePoint), 0.5f);
         }
     }
 }

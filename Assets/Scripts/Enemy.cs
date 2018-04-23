@@ -48,6 +48,14 @@ namespace Assets.Scripts
 
             if (effect.ApplyBuff != null)
                 _buffable.AddBuff(effect.ApplyBuff);
+
+            if (effect.SpawnObject != null)
+            {
+                if (effect.WorldSpace)
+                    GameObject.Instantiate(effect.SpawnObject, transform.position, Quaternion.identity);
+                else
+                    GameObject.Instantiate(effect.SpawnObject, transform);
+            }
         }
 
         void OnDrawGizmosSelected()
