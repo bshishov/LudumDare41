@@ -81,6 +81,8 @@ namespace Assets.Scripts
         [ContextMenu("Rebuild AoE")]
         public void RebuildAoe()
         {
+            _objectsInAoE.Clear();
+
             if (_meshCollider != null)
                 _meshCollider.enabled = false;
 
@@ -115,8 +117,7 @@ namespace Assets.Scripts
                         SetAoeMesh(_aoeMeshLeft);
                     }
                 }
-
-                if (this.Direction == Direction.Right)
+                else if (this.Direction == Direction.Right)
                 {
                     if (AoEType == AoEType.HorizontalDirectionalPlatform)
                         _pathRight = BuildPath(Vector2.right);

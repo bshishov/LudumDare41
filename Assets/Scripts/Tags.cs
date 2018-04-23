@@ -10,6 +10,8 @@
 
     public static class Layers
     {
+        public static string Default = "Default";
         public static string Platform = "Platform";
+        public static string Player = "Player";
     }
 }

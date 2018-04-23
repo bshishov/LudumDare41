@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.AI;
+using Ray = UnityEngine.Ray;
 
 public class PlayerController : MonoBehaviour
 {
@@ -32,8 +34,11 @@ public class PlayerController : MonoBehaviour
     
     void Start()
     {
+        
         _controller = GetComponent<CharacterController>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
+
+        Physics.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer(Layers.Default));
 
         _movingCenter = Cylinder.transform.position;
         var playerFromCenter = transform.position - new Vector3(_movingCenter.x, 0, _movingCenter.z);
