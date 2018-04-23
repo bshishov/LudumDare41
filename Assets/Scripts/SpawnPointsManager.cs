@@ -17,16 +17,9 @@ public class SpawnPointsManager : MonoBehaviour {
 
     public bool WaveIsDone
     {
-        get
-        {
-            return SpawnPoints.All(t => t.WaveIsDone);
-        }
+        get { return SpawnPoints.All(t => t.WaveIsDone); }
     }
-    
-	void Start () {
-		
-	}
-	
+
 	void Update () {
         if (!_weAreBetweenWaves && WaveIsDone)
         {

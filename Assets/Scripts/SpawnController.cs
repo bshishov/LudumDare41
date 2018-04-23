@@ -29,15 +29,8 @@ public class SpawnController : MonoBehaviour {
     
     public bool WaveIsDone
     {
-        get
-        {
-            return _currentWave == null;
-        }
+        get { return _currentWave == null; } 
     }
-
-    void Start () {
-		
-	}
 	
 	void Update () {
 

@@ -9,17 +9,6 @@ public class CameraController : MonoBehaviour
     public float VerticalOffset = 0.9f;
     public GameObject Cylinder;
     public GameObject Player;
-    
-    void OnDrawGizmos()
-    {
-        var lookPoint = Cylinder.transform.position;
-        lookPoint.y = Player.transform.position.y;
-
-        var playerFromCenter = Player.transform.position - lookPoint;
-
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(playerFromCenter + Player.GetComponent<PlayerController>().MovingVector * 10, 0.3f);
-    }
 
     void Start()
     {
