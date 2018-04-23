@@ -26,20 +26,17 @@ namespace Assets.Scripts.UI
         void Start ()
         {
             _canvasGroupFader = GetComponent<UICanvasGroupFader>();
-
-            for (var i = 0; i < 10; i++)
+            foreach (var turret in Turrets)
             {
-                foreach (var turret in Turrets)
-                {
-                    var tObj = GameObject.Instantiate(TurretItem, ScrollRect.content);
-                    var t = tObj.GetComponent<UITurretItem>();
-                    if (t == null)
-                        continue;
+                var tObj = GameObject.Instantiate(TurretItem, ScrollRect.content);
+                var t = tObj.GetComponent<UITurretItem>();
+                if (t == null)
+                    continue;
 
-                    t.Setup(turret);
-                    _turretItems.Add(t);
-                }
+                t.Setup(turret);
+                _turretItems.Add(t);
             }
+            
 
             _canvasGroupFader.StateChanged += () =>
             {
