@@ -13,6 +13,7 @@ Shader "Custom/Silhouetted Outline" {
 	{
 		Tags{ "Queue" = "Transparent" }
 
+		
 		// note that a vertex shader is specified here but its using the one above
 		Pass
 		{
@@ -20,7 +21,7 @@ Shader "Custom/Silhouetted Outline" {
 			Tags{ "LightMode" = "Always" }
 			Cull Off
 			ZWrite Off
-			ZTest Always
+			//ZTest Always
 			ColorMask RGB // alpha not used
 
 						  // you can choose what kind of blending mode you want for the outline
