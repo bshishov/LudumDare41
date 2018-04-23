@@ -43,6 +43,11 @@ namespace Assets.Scripts
             return GridToWorld(new Vector2(p.x + 0.5f, p.y + 0.5f));
         }
 
+        public Vector3 CenterOfCell(Vector2Int p, float offset)
+        {
+            return GridToWorld(new Vector2(p.x + 0.5f, p.y + 0.5f), offset);
+        }
+
         public Vector2Int WorldToCoords(Vector3 p)
         {
             var angle = Mathf.Atan2(p.x, p.z) % TwoPI / TwoPI;
@@ -58,6 +63,11 @@ namespace Assets.Scripts
         public Vector3 GridToWorld(Vector2 p)
         {
             return new Vector3(Mathf.Sin(p.x * SegmentAngle) * Radius, p.y * SegmentHeight, Mathf.Cos(p.x * SegmentAngle) * Radius);
+        }
+
+        public Vector3 GridToWorld(Vector2 p, float offset)
+        {
+            return new Vector3(Mathf.Sin(p.x * SegmentAngle) * (Radius + offset), p.y * SegmentHeight, Mathf.Cos(p.x * SegmentAngle) * (Radius + offset));
         }
     }
 }

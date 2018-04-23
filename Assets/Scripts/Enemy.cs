@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Data;
+using Assets.Scripts.UI;
 using UnityEditor;
 using UnityEngine;
 
@@ -29,11 +30,15 @@ namespace Assets.Scripts
             CurrentHp -= amount;
             if (CurrentHp < 1f)
                 Destroy(gameObject);
+
+            UINotifications.Instance.Show(gameObject.transform, amount.ToString(), Color.red);
         }
 
         public void Heal(float amount)
         {
             CurrentHp = Mathf.Max(CurrentHp + amount, MaxHp);
+
+            UINotifications.Instance.Show(gameObject.transform, amount.ToString(), Color.green);
         }
 
         public void ApplyEffect(Effect effect)

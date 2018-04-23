@@ -9,9 +9,15 @@ namespace Assets.Scripts.Turrets
     [RequireComponent(typeof(Buffable))]
     public class Turret : MonoBehaviour
     {
-        public TowerInfo Info;
+        public enum ActivationType
+        {
+            Automatic,
+            Manual
+        }
 
-        [Header("Fire Mode")]
+        public TurretInfo Info;
+
+        [Header("Fire Mode")] public ActivationType FireMode;
         [Tooltip("Delay between firing. If burst > 1 then it is a delay between bursts")]
         public float Cooldown = 1f;
 
@@ -21,8 +27,10 @@ namespace Assets.Scripts.Turrets
         [Tooltip("Number of projectiles to emit in a single burst")]
         public int Burst = 1;
 
+
+        public float CooldownPercentage { get { return Mathf.Clamp01(1 - _cd / Cooldown); } }
         public Vector2Int GridCoords { get; private set; }
-        public Direction Direction { get; private set; }
+        public Direction Direction { get { return _aoe.Direction; } }
 
         public event Action OnFire;
 
@@ -43,10 +51,11 @@ namespace Assets.Scripts.Turrets
 	
         void Update ()
         {
+            _cd += Time.deltaTime * _buffable.CooldownInvMultiplier;
+
             if (_aoe.ObjectsInAoE != null && _aoe.ObjectsInAoE.Count > 0)
             {
-                _cd += Time.deltaTime * _buffable.CooldownInvMultiplier;
-                if (_cd > Cooldown)
+                if (FireMode == ActivationType.Automatic && _cd > Cooldown)
                 {
                     _burstCd += Time.deltaTime * _buffable.CooldownInvMultiplier;
                     if (_burstCd > BurstDelay)
@@ -68,9 +77,24 @@ namespace Assets.Scripts.Turrets
             }
             else
             {
-                _cd = Cooldown + 1f;
+                //_cd = Cooldown + 1f;
                 _burstCd = BurstDelay + 1f;
                 _burstsDone = 0;
+            }
+        }
+
+        [ContextMenu("Fire!")]
+        public void Activate()
+        {
+            if(FireMode != ActivationType.Manual)
+                return;
+
+            if (_cd > Cooldown)
+            {
+                if (OnFire != null)
+                    OnFire();
+
+                _cd = 0;
             }
         }
 
@@ -84,13 +108,11 @@ namespace Assets.Scripts.Turrets
             }
 
             if (Direction == Direction.Left)
-            {
-                Direction = Direction.Right;
-            }
+                _aoe.Direction = Direction.Right;
             else if (Direction == Direction.Right)
-            {
-                Direction = Direction.Left;
-            }
+                _aoe.Direction = Direction.Left;
+
+            _aoe.RebuildAoe();
         }
     }
 }

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f4ee30ec838cb4438081ac0d5bbe333, type: 3}
+  m_Name: ObeliskGold
+  m_EditorClassIdentifier: 
+  Name: Gold Obelisk
+  Description: Shoots a laser that deals 5 damage. Can be connected with another Gold
+    Obelisk for better effect
+  Icon: {fileID: 0}
+  Prefab: {fileID: 1368108587265192, guid: ea6b22ed4ae94244390a1a1ac3d8f0d2, type: 2}
+  Cost: 10
+  Cooldown: 0
