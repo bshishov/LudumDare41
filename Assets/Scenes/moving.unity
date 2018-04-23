@@ -1024,6 +1024,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4653653605912792, guid: 413085987c67d484d966e35dc280d333, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.83
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 413085987c67d484d966e35dc280d333, type: 2}
   m_IsPrefabParent: 0
@@ -2368,9 +2372,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c30513ea5afe764ba5c54c1a33e2d4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0.1
-  RotationSpeed: 0.5
-  JumpForce: 15.5
+  Speed: 0.15
+  RotationSpeed: 0.3
+  InitialJumpSpeed: 0.2
   MovingVector: {x: 0, y: 0, z: 0}
   Cylinder: {fileID: 428958492}
 --- !u!143 &1897441436

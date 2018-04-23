@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public float Speed = 0.07f;
     public float RotationSpeed = 0.3f;
-    public float JumpForce = 15.5f;
+    public float InitialJumpSpeed = 15.5f;
 
     public Vector3 MovingVector = new Vector3(0f, 0f, 0f);
     public GameObject Cylinder;
@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 _movingCenter;
     private float _movingRadius;
 
-    private float _currentJumpForce;
+    private float _verticalSpeed;
 
     void OnDrawGizmos()
     {
@@ -57,14 +57,6 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        var verticalChange = Physics.gravity * Time.deltaTime;
-        var beforeFalling = transform.position.y;
-        _controller.Move(new Vector3(0, _currentJumpForce * Time.deltaTime, 0) + verticalChange); // падаем
-        if (_controller.isGrounded)
-            _currentJumpForce = 0f;
-        else
-            _currentJumpForce = Mathf.Max(0f, _currentJumpForce - verticalChange.magnitude);
-
         if (MovingVector.magnitude <= 0.01f) return;
 
         var moveToFromCenter = transform.position + MovingVector - new Vector3(_movingCenter.x, transform.position.y, _movingCenter.z);
@@ -76,12 +68,25 @@ public class PlayerController : MonoBehaviour
 
     void CheckJump()
     {
-        if (!_controller.isGrounded) return;
-        var jump = Input.GetAxis("Jump");
-        if (jump > 0)
+        if (_controller.isGrounded)
         {
-            _currentJumpForce = JumpForce;
+            _verticalSpeed = 0f;
+            var jump = Input.GetAxis("Jump");
+            if (jump > 0)
+            {
+                _verticalSpeed = InitialJumpSpeed;
+            }
         }
+
+        if (_controller.collisionFlags == CollisionFlags.Above)
+        {
+            _verticalSpeed = 0f;
+        }
+        
+        var verticalChange = Physics.gravity.y * Time.deltaTime / 10;
+        _verticalSpeed += verticalChange;
+        
+        _controller.Move(new Vector3(0, _verticalSpeed, 0)); // падаем
     }
 
     void Rotate()

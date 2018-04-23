@@ -40,7 +40,7 @@ public class CameraController : MonoBehaviour
         playerFromCenter *= RadiusMultiplier;
         playerFromCenter.y = lookPoint.y + VerticalOffset;
         
-        transform.position = Vector3.Lerp(transform.position, playerFromCenter + Player.GetComponent<PlayerController>().MovingVector * 8, 0.7f);
+        transform.position = Vector3.Lerp(transform.position, playerFromCenter + Player.GetComponent<PlayerController>().MovingVector * 3, 0.7f);
         transform.LookAt(lookPoint);
     }
 }
