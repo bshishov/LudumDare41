@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Assets.Scripts.Data;
+﻿using Assets.Scripts.Data;
 using Assets.Scripts.Utils;
 using UnityEngine;
 
@@ -25,13 +24,13 @@ namespace Assets.Scripts
             Destroy(gameObject, TTL);
         }
         
-        public void SetPath(List<Vector3> path, Aoe aoe)
+        public void SetPath(Vector3[] path, Aoe aoe)
         {
             if (_line == null)
                 _line = GetComponent<LineRenderer>();
 
-            _line.positionCount = path.Count;
-            _line.SetPositions(path.ToArray());
+            _line.positionCount = path.Length;
+            _line.SetPositions(path);
 
             if (aoe.ObjectsInAoE != null)
             {

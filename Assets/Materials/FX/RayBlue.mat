@@ -7,12 +7,12 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: RayBlue
-  m_Shader: {fileID: 4800000, guid: a9c1f52618b55d0439cf9bd8a32886e1, type: 3}
+  m_Shader: {fileID: 4800000, guid: f6915c4fe5396f346be7f2a3ac09f849, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:

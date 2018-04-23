@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [Serializable]
 public class SpawnEntry
@@ -56,7 +57,9 @@ public class SpawnController : MonoBehaviour {
 
             Debug.Log(String.Format("Spawn {0}", _currentWave.Items[_currentInWaveIndex].EnemyPrefab.name));
             var enemy = Instantiate(_currentWave.Items[_currentInWaveIndex].EnemyPrefab);
-            enemy.transform.position = transform.position;
+            enemy.GetComponent<NavMeshAgent>().Warp(transform.position);
+
+            //enemy.transform.position = transform.position;
             enemy.GetComponent<EnemyController>().Target = _target;
 
             _lastActionTime = Time.time;
