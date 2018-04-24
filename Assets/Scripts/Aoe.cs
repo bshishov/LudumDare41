@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Utils;
-using UnityEditor;
 using UnityEngine;
+
+#if DEBUG
+using UnityEditor;
+#endif
 
 namespace Assets.Scripts
 {
@@ -272,8 +275,9 @@ namespace Assets.Scripts
 
             if (this.AoEType == AoEType.HorizontalPlatform)
                 DrawGizmosPath(_pathMerged, Color.cyan);
-
+#if DEBUG
             Handles.Label(transform.position, string.Format("In range: {0}", _objectsInAoE.Count), "textField");
+#endif
         }
     }
 }

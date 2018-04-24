@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Data;
-using UnityEditor;
 using UnityEngine;
+
+#if DEBUG
+using UnityEditor;
+#endif
 
 namespace Assets.Scripts
 {
@@ -114,7 +117,10 @@ namespace Assets.Scripts
             {
                 var buffsDesc = string.Join("\n", _states.Select(s => string.Format("{0}: {1:0.0}", s.Buff.Name, s.TimeRemaining)).ToArray());
                 var stateDesc = string.Format("SPD: {0:0.0}\nDMG: {1:0.0}\nCDR: {2:0.0}\nHPB: {3:0.0}", SpeedMultiplier, DamageMultiplier, CooldownMultiplier, HpMultiplier);
+
+#if DEBUG
                 Handles.Label(transform.position + Vector3.down * 2, string.Format("Buffs:\n{0}\n{1}", buffsDesc, stateDesc), "textField");
+#endif
             }
         }
     }

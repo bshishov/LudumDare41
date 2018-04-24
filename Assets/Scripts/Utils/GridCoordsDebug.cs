@@ -1,4 +1,7 @@
-﻿using UnityEditor;
+﻿#if DEBUG
+using UnityEditor;
+#endif
+
 using UnityEngine;
 
 namespace Assets.Scripts.Utils
@@ -7,6 +10,8 @@ namespace Assets.Scripts.Utils
     {
         public bool Show = true;
         public bool ShowMappedPosition = false;
+        public bool ShowTangent = false;
+        public bool IsLeftTangent = true;
 
         private float _radius = 0.3f;
 
@@ -20,7 +25,9 @@ namespace Assets.Scripts.Utils
                 Gizmos.DrawSphere(p, _radius);
                 Gizmos.DrawLine(transform.position, p);
 
+#if DEBUG
                 Handles.Label(p, coords.ToString(), "AssetLabel");
+#endif
             }
 
             if (ShowMappedPosition)
@@ -29,6 +36,12 @@ namespace Assets.Scripts.Utils
                 var p = PlacementGrid.Instance.GridToWorld(PlacementGrid.Instance.WorldToGrid(transform.position));
                 Gizmos.DrawSphere(p, _radius);
                 Gizmos.DrawLine(transform.position, p);
+            }
+
+            if (ShowTangent)
+            {
+                var t = PlacementGrid.Instance.WorldTanget(transform.position, IsLeftTangent);
+                Gizmos.DrawLine(transform.position, transform.position + t * 10);
             }
         }
     }

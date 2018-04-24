@@ -69,5 +69,22 @@ namespace Assets.Scripts
         {
             return new Vector3(Mathf.Sin(p.x * SegmentAngle) * (Radius + offset), p.y * SegmentHeight, Mathf.Cos(p.x * SegmentAngle) * (Radius + offset));
         }
+
+        public Vector3 WorldTanget(Vector3 p, bool left = true)
+        {
+            var cr = p - transform.position;
+            var tangent = left ? new Vector3(-cr.z, 0, cr.x) : new Vector3(cr.z, 0, -cr.x);
+            return tangent.normalized;
+        }
+
+        public Vector3 GridToWorldTangent(Vector2 p, bool left=true)
+        {
+            return WorldTanget(GridToWorld(p), left);
+        }
+
+        public Quaternion RotationAlongTangent(Vector3 p, bool left = true)
+        {
+            return Quaternion.LookRotation(WorldTanget(p, left), Vector3.up);
+        }
     }
 }

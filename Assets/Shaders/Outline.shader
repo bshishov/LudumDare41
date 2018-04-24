@@ -19,7 +19,7 @@ Shader "Custom/Silhouetted Outline" {
 		{
 			Name "OUTLINE"
 			Tags{ "LightMode" = "Always" }
-			Cull Off
+			Cull Front
 			ZWrite Off
 			//ZTest Always
 			ColorMask RGB // alpha not used
@@ -69,12 +69,13 @@ Shader "Custom/Silhouetted Outline" {
 			ENDCG
 		}
 
+		
 		Pass
 		{
 			Name "BASE"
 			ZWrite On
 			ZTest LEqual
-			Blend SrcAlpha OneMinusSrcAlpha
+			Blend Off  //SrcAlpha OneMinusSrcAlpha
 			Material
 			{
 				Diffuse[_Color]

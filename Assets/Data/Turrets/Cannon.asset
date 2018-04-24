@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4ee30ec838cb4438081ac0d5bbe333, type: 3}
   m_Name: Cannon
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Cannon
   Description: 
   Icon: {fileID: 0}
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 1877965952825448, guid: 58e01553959e67a4d9733d4bacf009a0, type: 2}
   Cost: 0
   Cooldown: 0

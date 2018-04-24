@@ -1,7 +1,10 @@
 ﻿using Assets.Scripts.Data;
 using Assets.Scripts.UI;
-using UnityEditor;
 using UnityEngine;
+
+#if DEBUG
+using UnityEditor;
+#endif
 
 namespace Assets.Scripts
 {
@@ -67,7 +70,9 @@ namespace Assets.Scripts
         {
             if (Application.isPlaying)
             {
+#if DEBUG
                 Handles.Label(transform.position + Vector3.down, string.Format("HP:{0}/{1}", CurrentHp, MaxHp), "textField");
+#endif
             }
         }
     }
