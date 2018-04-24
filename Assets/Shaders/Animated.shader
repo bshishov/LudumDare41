@@ -86,16 +86,18 @@
 			fixed4 frag(v2f i) : SV_Target
 			{				
 
+				float x = fmod(_Time.z * _Speed, _RowTiles);
+
 				int2 currentFrame;
-				currentFrame.x = fmod(_Time.z * _Speed, _RowTiles);
+				currentFrame.x = floor(x);
 				currentFrame.y = fmod(_Time.z * _Speed / _RowTiles, _ColTiles);
 
 				int2 nextFrame;
-				nextFrame.x = currentFrame.x + 1;// fmod(_Time.z * _Speed + _Speed, _RowTiles);
+				nextFrame.x = fmod(currentFrame.x + 1, _RowTiles);// fmod(_Time.z * _Speed + _Speed, _RowTiles);
 				nextFrame.y = currentFrame.y; // fmod((_Time.z * _Speed + _Speed) / _RowTiles, _ColTiles);
 
 				//float lerpFactor = fmod(_Time.z * _Speed, _Speed) / _Speed;
-				float lerpFactor = fmod(_Time.z * _Speed, 1);
+				float lerpFactor = x - floor(x);
 
 				// sample the texture
 				float2 d = float2(1.0 / _RowTiles, 1.0 / _ColTiles);
