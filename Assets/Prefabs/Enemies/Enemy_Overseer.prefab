@@ -69,9 +69,9 @@ GameObject:
   - component: {fileID: 4158592084978240}
   - component: {fileID: 95828816949358138}
   - component: {fileID: 143968662300790042}
+  - component: {fileID: 195920752951877326}
   - component: {fileID: 114612679949935030}
   - component: {fileID: 114119719487545258}
-  - component: {fileID: 195920752951877326}
   m_Layer: 0
   m_Name: Enemy_Overseer
   m_TagString: Enemy
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseSpeed: 3.7
-  LadderSpeed: 4
+  LadderSpeed: 10
   MaxHp: 12
 --- !u!114 &114612679949935030
 MonoBehaviour:

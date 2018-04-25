@@ -64,10 +64,10 @@ namespace Assets.Scripts
             WaveInProgress = true;
             foreach (var spawnEntry in wave.Items)
             {
-                if(spawnEntry.EnemyPrefab == null || spawnEntry.Total == 0)
+                if(spawnEntry.EnemyPrefab == null || spawnEntry.NumberOfThisType == 0)
                     continue;
 
-                for (var i = 0; i < spawnEntry.Total; i++)
+                for (var i = 0; i < spawnEntry.NumberOfThisType; i++)
                 {
                     SpawnEnemy(spawnEntry.EnemyPrefab);
                     yield return new WaitForSeconds(spawnEntry.DelayBetween);

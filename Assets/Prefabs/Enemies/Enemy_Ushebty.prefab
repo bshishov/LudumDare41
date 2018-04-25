@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4086085871708672}
   - component: {fileID: 95082900346128244}
   - component: {fileID: 143961009463512002}
+  - component: {fileID: 195925749704049678}
   - component: {fileID: 114681839104411956}
   - component: {fileID: 114840490397907838}
-  - component: {fileID: 195925749704049678}
   m_Layer: 0
   m_Name: Enemy_Ushebty
   m_TagString: Enemy
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseSpeed: 4
-  LadderSpeed: 4
+  LadderSpeed: 10
   MaxHp: 20
 --- !u!137 &137309752122741910
 SkinnedMeshRenderer:

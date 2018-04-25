@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseSpeed: 3.5
-  LadderSpeed: 4
+  LadderSpeed: 10
   MaxHp: 3
 --- !u!114 &114957286192918656
 MonoBehaviour:

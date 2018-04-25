@@ -12,7 +12,7 @@ namespace Assets.Scripts.Data
 
         public int TotalNumberOfEnemies()
         {
-            return Items.Sum(spawnEntry => spawnEntry.Total);
+            return Items.Sum(spawnEntry => spawnEntry.NumberOfThisType);
         }
     }
 }

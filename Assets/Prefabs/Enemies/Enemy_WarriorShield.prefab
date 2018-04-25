@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseSpeed: 3
-  LadderSpeed: 4
+  LadderSpeed: 10
   MaxHp: 10
 --- !u!137 &137366394864673824
 SkinnedMeshRenderer:

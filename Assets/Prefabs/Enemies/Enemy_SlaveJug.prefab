@@ -38,9 +38,9 @@ GameObject:
   - component: {fileID: 4569820698301570}
   - component: {fileID: 95550623262674094}
   - component: {fileID: 143825456767864430}
+  - component: {fileID: 195480825028304068}
   - component: {fileID: 114374220811119180}
   - component: {fileID: 114660203667823010}
-  - component: {fileID: 195480825028304068}
   m_Layer: 0
   m_Name: Enemy_SlaveJug
   m_TagString: Enemy
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseSpeed: 3.5
-  LadderSpeed: 4
+  LadderSpeed: 10
   MaxHp: 20
 --- !u!137 &137760034629136120
 SkinnedMeshRenderer:

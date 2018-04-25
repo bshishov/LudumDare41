@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4742533680699022}
   - component: {fileID: 95486924349144504}
   - component: {fileID: 143791555513188918}
+  - component: {fileID: 195980184590766888}
   - component: {fileID: 114350816337761004}
   - component: {fileID: 114711320934651156}
-  - component: {fileID: 195980184590766888}
   m_Layer: 0
   m_Name: Enemy_Scavenger
   m_TagString: Enemy
@@ -666,7 +666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseSpeed: 6
-  LadderSpeed: 4
+  LadderSpeed: 10
   MaxHp: 5
 --- !u!137 &137822299357317690
 SkinnedMeshRenderer:
