@@ -1,99 +1,108 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Assets.Scripts;
-using UnityEngine;
-using UnityEngine.AI;
-using Ray = UnityEngine.Ray;
+﻿using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+namespace Assets.Scripts
 {
-
-    public float Speed = 0.07f;
-    public float RotationSpeed = 0.3f;
-    public float InitialJumpSpeed = 15.5f;
-
-    public GameObject Cylinder;
-
-    private CharacterController _controller;
-
-    // центр, вокруг которого производится движение
-    private Vector3 _movingCenter;
-    private float _movingRadius;
-
-    private float _verticalSpeed;
-    private Vector3 _movingVector = new Vector3(0f, 0f, 0f);
-
-    public Vector3 MovingVector
+    public class PlayerController : MonoBehaviour
     {
-        get { return _movingVector; }
-    }
-    
-    void Start()
-    {
-        _controller = GetComponent<CharacterController>();
 
-        Physics.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer(Layers.Default));
+        public float Speed = 0.07f;
+        public float RotationSpeed = 0.3f;
+        public float InitialJumpSpeed = 0.3f;
+        public float JumpHoldSpeed = 0.01f;
 
-        _movingCenter = Cylinder.transform.position;
-        var playerFromCenter = transform.position - new Vector3(_movingCenter.x, transform.position.y, _movingCenter.z);
-        _movingRadius = playerFromCenter.magnitude;
-    }
-    
-    void Update()
-    {
-        _movingVector = Vector3.zero;
-        CheckSideMoving();
-        CheckJump();
-        Move();
-        Rotate();
-    }
+        public GameObject Cylinder;
 
-    void CheckSideMoving()
-    {
-        var side = Input.GetAxis("Horizontal");
-        _movingVector = Camera.main.transform.right.normalized * side * Speed;
-    }
+        private CharacterController _controller;
+        private Animator _animator;
 
-    void Move()
-    {
-        if (_movingVector.magnitude <= 0.01f) return;
+        // центр, вокруг которого производится движение
+        private Vector3 _movingCenter;
+        private float _movingRadius;
 
-        var moveToFromCenter = transform.position + _movingVector - new Vector3(_movingCenter.x, transform.position.y, _movingCenter.z);
-        moveToFromCenter = moveToFromCenter.normalized * _movingRadius;
-        _movingVector = new Vector3(_movingCenter.x, transform.position.y, _movingCenter.z) + moveToFromCenter - transform.position;
+        private float _verticalSpeed;
+        private Vector3 _movingVector = new Vector3(0f, 0f, 0f);
 
-        _controller.Move(_movingVector);
-    }
-
-    void CheckJump()
-    {
-        if (_controller.collisionFlags == CollisionFlags.Below)
+        public Vector3 MovingVector
         {
-            _verticalSpeed = 0f;
-            var jump = Input.GetAxis("Jump");
-            if (jump > 0)
+            get { return _movingVector; }
+        }
+    
+        void Start()
+        {
+            _controller = GetComponent<CharacterController>();
+            _animator = GetComponent<Animator>();
+
+            Physics.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer(Layers.Default));
+
+            _movingCenter = Cylinder.transform.position;
+            var playerFromCenter = transform.position - new Vector3(_movingCenter.x, transform.position.y, _movingCenter.z);
+            _movingRadius = playerFromCenter.magnitude;
+        }
+    
+        void Update()
+        {
+            _movingVector = Vector3.zero;
+            CheckSideMoving();
+            CheckJump();
+            Move();
+            Rotate();
+        }
+
+        void CheckSideMoving()
+        {
+            var side = Input.GetAxis("Horizontal");
+            _animator.SetFloat("Speed", Mathf.Abs(side));
+            _movingVector = Camera.main.transform.right.normalized * side * Speed;
+        }
+
+        void Move()
+        {
+            if (_movingVector.magnitude <= 0.01f) return;
+
+            var moveToFromCenter = transform.position + _movingVector - new Vector3(_movingCenter.x, transform.position.y, _movingCenter.z);
+            moveToFromCenter = moveToFromCenter.normalized * _movingRadius;
+            _movingVector = new Vector3(_movingCenter.x, transform.position.y, _movingCenter.z) + moveToFromCenter - transform.position;
+
+            _controller.Move(_movingVector);
+        }
+
+        void CheckJump()
+        {
+            if (_controller.collisionFlags == CollisionFlags.Below)
             {
-                _verticalSpeed = InitialJumpSpeed;
+                _verticalSpeed = 0f;
+                var jump = Input.GetAxis("Jump");
+                if (jump > 0)
+                {
+                    _verticalSpeed = InitialJumpSpeed;
+                }
             }
+            else if (_controller.collisionFlags == CollisionFlags.Above)
+            {
+                _verticalSpeed = 0f;
+            }
+            else
+            {
+                var jump = Input.GetAxis("Jump");
+                if (jump > 0)
+                {
+                    _verticalSpeed += JumpHoldSpeed;
+                }
+            }
+        
+            var verticalChange = Physics.gravity.y * Time.deltaTime / 10;
+            _verticalSpeed += verticalChange;
+        
+            _controller.Move(new Vector3(0, _verticalSpeed, 0)); // падаем
         }
 
-        if (_controller.collisionFlags == CollisionFlags.Above)
+        void Rotate()
         {
-            _verticalSpeed = 0f;
+            if (_movingVector.magnitude <= 0.01f) return;
+
+            transform.rotation = Quaternion.Lerp(transform.rotation,
+                Quaternion.LookRotation(_movingVector.normalized),
+                RotationSpeed);
         }
-        
-        var verticalChange = Physics.gravity.y * Time.deltaTime / 10;
-        _verticalSpeed += verticalChange;
-        
-        _controller.Move(new Vector3(0, _verticalSpeed, 0)); // падаем
-    }
-
-    void Rotate()
-    {
-        if (_movingVector.magnitude <= 0.01f) return;
-
-        transform.rotation = Quaternion.Lerp(transform.rotation,
-            Quaternion.LookRotation(_movingVector.normalized),
-            RotationSpeed);
     }
 }

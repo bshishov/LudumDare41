@@ -7,6 +7,12 @@ namespace Assets.Scripts.Utils
     {
         public static Mesh MeshFromPath(List<Vector3> path, Vector3 direction, float thickness = 1f)
         {
+            if (path == null)
+                return null;
+
+            if (path.Count <= 1)
+                return null;
+
             var mesh = new Mesh();
 
             var vertices = new Vector3[path.Count * 2];

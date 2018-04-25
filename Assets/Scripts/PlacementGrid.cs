@@ -86,5 +86,16 @@ namespace Assets.Scripts
         {
             return Quaternion.LookRotation(WorldTanget(p, left), Vector3.up);
         }
+
+        public Quaternion RotationAlongNormal(Vector3 p)
+        {
+            var dir = p - transform.position;
+            return Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z).normalized, Vector3.up);
+        }
+
+        public float GridRangeToWorld(float r)
+        {
+            return Vector3.Distance(GridToWorld(new Vector2(r + 0.5f, 0)), GridToWorld(Vector2.zero));
+        }
     }
 }

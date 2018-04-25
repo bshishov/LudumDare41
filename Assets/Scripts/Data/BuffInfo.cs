@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Data
 {
-    [CreateAssetMenu(fileName = "buff", menuName = "Assets/GamePlay/Buff")]
+    [CreateAssetMenu(fileName = "buff", menuName = "Gameplay/Buff")]
     public class BuffInfo : ScriptableObject
     {
         public string Name;

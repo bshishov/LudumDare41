@@ -258,6 +258,7 @@ MonoBehaviour:
   Range: 3
   AoEType: 1
   Direction: 1
+  ReferenceOffset: {x: 0, y: 1.5, z: 0}
   TargetTags:
   - Enemy
 --- !u!136 &136744202659395986

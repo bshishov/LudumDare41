@@ -40,13 +40,28 @@ namespace Assets.Scripts.Turrets
         private Buffable _buffable;
         
         private Aoe _aoe;
-        
+
+        void Awake()
+        {
+            _aoe = GetComponent<Aoe>();
+            UpdateRotation();
+        }
+
         void Start ()
         {
             GridCoords = PlacementGrid.Instance.WorldToCoords(transform.position);
             _cd = Cooldown + 1f;
             _buffable = GetComponent<Buffable>();
-            _aoe = GetComponent<Aoe>();
+        }
+
+        private void UpdateRotation()
+        {
+            if (Direction == Direction.Left)
+                transform.rotation = PlacementGrid.Instance.RotationAlongTangent(transform.position, left: true);
+            else if (Direction == Direction.Right)
+                transform.rotation = PlacementGrid.Instance.RotationAlongTangent(transform.position, left: false);
+            else if (Direction == Direction.None)
+                transform.rotation = PlacementGrid.Instance.RotationAlongNormal(transform.position);
         }
 	
         void Update ()
@@ -101,7 +116,7 @@ namespace Assets.Scripts.Turrets
         [ContextMenu("Change Direction")]
         public void ChangeDirection()
         {
-            if (_aoe.AoEType != AoEType.HorizontalDirectionalPlatform)
+            if (Direction == Direction.None)
             {
                 Debug.LogWarning("Trying to change direction of non Directional aoe type");
                 return;
@@ -112,6 +127,10 @@ namespace Assets.Scripts.Turrets
             else if (Direction == Direction.Right)
                 _aoe.Direction = Direction.Left;
 
+            // ROTATE FIRST
+            UpdateRotation();
+
+            // REBUILD COLLIDERS NEXT
             _aoe.RebuildAoe();
         }
     }

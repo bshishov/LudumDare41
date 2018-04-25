@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Data
 {
-    [CreateAssetMenu(fileName = "turrets", menuName = "Assets/GamePlay/TurretsList")]
+    [CreateAssetMenu(fileName = "turrets", menuName = "Gameplay/TurretsList")]
     public class TurretsList : ScriptableObject
     {
         [SerializeField]

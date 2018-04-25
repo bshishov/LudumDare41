@@ -19,7 +19,7 @@ Shader "Custom/Silhouetted Outline" {
 		{
 			Name "OUTLINE"
 			Tags{ "LightMode" = "Always" }
-			Cull Front
+			//Cull Front
 			ZWrite Off
 			//ZTest Always
 			ColorMask RGB // alpha not used
@@ -64,6 +64,7 @@ Shader "Custom/Silhouetted Outline" {
 			}
 
 			half4 frag(v2f i) :COLOR{
+				clip(i.color.a + 0.5);
 				return i.color;
 			}
 			ENDCG

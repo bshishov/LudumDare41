@@ -90,7 +90,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1877965952825448}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4849927110649704}
@@ -311,8 +311,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Range: 3
-  AoEType: 0
-  Direction: 0
+  AoEType: 1
+  Direction: 1
+  ReferenceOffset: {x: 0, y: 1.5, z: 0}
   TargetTags: []
 --- !u!114 &114831358903274578
 MonoBehaviour:

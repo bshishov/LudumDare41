@@ -32,6 +32,7 @@ namespace Assets.Scripts
 
         public AoEType AoEType;
         public Direction Direction;
+        public Vector3 ReferenceOffset;
 
         [TagSelector]
         public string[] TargetTags;
@@ -140,8 +141,9 @@ namespace Assets.Scripts
                 if (_sphereCollider == null)
                     _sphereCollider = gameObject.AddComponent<SphereCollider>();
 
+                _sphereCollider.center = ReferenceOffset;
                 _sphereCollider.enabled = true;
-                _sphereCollider.radius = Range;
+                _sphereCollider.radius = PlacementGrid.Instance.GridRangeToWorld(Range);
                 _sphereCollider.isTrigger = true;
             }
 
@@ -150,9 +152,9 @@ namespace Assets.Scripts
                 if (_capsuleCollider == null)
                     _capsuleCollider = gameObject.AddComponent<CapsuleCollider>();
 
-                _capsuleCollider.radius = Range;
+                _capsuleCollider.radius = PlacementGrid.Instance.GridRangeToWorld(Range);
                 _capsuleCollider.height = transform.position.y + Range;
-                _capsuleCollider.center = new Vector3(0, -transform.position.y / 2 - Range / 2, 0);
+                _capsuleCollider.center = new Vector3(0, -transform.position.y / 2 - Range / 2, 0) + ReferenceOffset;
                 _capsuleCollider.enabled = true;
                 _capsuleCollider.isTrigger = true;
             }
@@ -175,24 +177,23 @@ namespace Assets.Scripts
 
         public List<Vector3> BuildPath(Vector2 direction)
         {
-            const float maxRayLenMod = 1.5f;
             var padding = new Vector3(0, PlacementGrid.Instance.SegmentHeight / 2, 0);
             var points = new List<Vector3>();
-            var coords = PlacementGrid.Instance.WorldToGrid(transform.position);
-            points.Add(PlacementGrid.Instance.GridToWorld(coords));
+            var gridPoint = PlacementGrid.Instance.WorldToGrid(transform.TransformPoint(ReferenceOffset));
+            points.Add(PlacementGrid.Instance.GridToWorld(gridPoint));
 
             for (var i = 0; i < Range; i++)
             {
-                coords += direction;
-                var sampleWorld = PlacementGrid.Instance.GridToWorld(coords);
+                gridPoint += direction;
+                var sampleWorld = PlacementGrid.Instance.GridToWorld(gridPoint);
 
                 RaycastHit hit;
-                var ray = new UnityEngine.Ray(sampleWorld, Vector3.down);
-                if (Physics.Raycast(ray, out hit, PlacementGrid.Instance.SegmentHeight * maxRayLenMod, LayerMask.GetMask(Layers.Platform)))
+                var ray = new UnityEngine.Ray(sampleWorld + padding * 2, Vector3.down);
+                if (Physics.Raycast(ray, out hit, PlacementGrid.Instance.SegmentHeight * 2.5f, LayerMask.GetMask(Layers.Platform)))
                 {
                     var pathPoint = hit.point + padding;
                     points.Add(pathPoint);
-                    coords = PlacementGrid.Instance.WorldToGrid(pathPoint);
+                    gridPoint = PlacementGrid.Instance.WorldToGrid(pathPoint);
                 }
                 else
                 {
@@ -208,13 +209,13 @@ namespace Assets.Scripts
 
         public List<Vector3> BuildPathNonPlatform(Vector2 direction)
         {
-            var coords = PlacementGrid.Instance.WorldToGrid(transform.position);
-            var points = new List<Vector3> { PlacementGrid.Instance.GridToWorld(coords) };
+            var gridPoint = PlacementGrid.Instance.WorldToGrid(transform.TransformPoint(ReferenceOffset));
+            var points = new List<Vector3> { PlacementGrid.Instance.GridToWorld(gridPoint) };
 
             for (var i = 0; i < Range; i++)
             {
-                coords += direction;
-                points.Add(PlacementGrid.Instance.GridToWorld(coords));
+                gridPoint += direction;
+                points.Add(PlacementGrid.Instance.GridToWorld(gridPoint));
             }
 
             return points;
@@ -246,6 +247,12 @@ namespace Assets.Scripts
 
         private void SetAoeMesh(Mesh mesh)
         {
+            if (mesh == null)
+            {
+                Debug.LogWarning("Empty AOE mesh", gameObject);
+                return;
+            }
+
             if (_meshCollider == null)
                 _meshCollider = gameObject.AddComponent<MeshCollider>();
 

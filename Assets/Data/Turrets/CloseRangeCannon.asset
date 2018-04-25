@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: CloseRangeCannon
   m_EditorClassIdentifier: 
   Name: Close Range Cannon
-  Description: 
+  Description: Close range tower that deals 5 damage
   Icon: {fileID: 0}
   Prefab: {fileID: 1122353643702030, guid: adceb76bfbef91b48a27f95337d00762, type: 2}
-  Cost: 0
-  Cooldown: 0
+  Cost: 5
+  Cooldown: 2

@@ -5,28 +5,37 @@
 		_MainTex("Texture", 2D) = "white" {}
 		_TintColor("Color", COLOR) = (1, 1, 1, 1)
 	}
-		SubShader
+	SubShader
 	{
 		Tags{ "Queue" = "Transparent+1" "IgnoreProjector" = "True" "RenderType" = "TransparentCutout" }
 		LOD 200
-		Blend SrcAlpha OneMinusSrcAlpha
-		AlphaTest Greater .01
-		ColorMask RGB
-		Cull Off
-		Lighting Off
-		ZWrite Off
+		
+		
+			
 		Fog{ Color(0,0,0,0) }
 
+		// extra pass that renders to depth buffer only
+		Pass{
+			ZWrite On
+			ColorMask 0			
+		}
+
 		Pass
-	{
-		Lighting Off
+		{
+			Lighting Off
+			Blend SrcAlpha OneMinusSrcAlpha
+			AlphaTest Greater .01
 
-		CGPROGRAM
-#pragma vertex vert
-#pragma fragment frag			
-		//#pragma multi_compile_fog
+			ColorMask RGB
+			Cull Back
+			Lighting Off
+			ZWrite Off
 
-#include "UnityCG.cginc"
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag					
+
+			#include "UnityCG.cginc"
 
 			struct appdata
 			{
@@ -37,9 +46,8 @@
 
 			struct v2f
 			{
-				float2 uv : TEXCOORD0;
-				UNITY_FOG_COORDS(1)
-					float4 vertex : SV_POSITION;
+				float2 uv : TEXCOORD0;				
+				float4 vertex : SV_POSITION;
 				fixed4 color : COLOR;
 			};
 
@@ -52,8 +60,7 @@
 				v2f o;
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-				o.color = v.color;
-				UNITY_TRANSFER_FOG(o,o.vertex);
+				o.color = v.color;				
 				return o;
 			}
 
@@ -65,9 +72,8 @@
 				fixed l = sqrt(length(dist));
 				col.rgb = fixed3(1, 1, 1) * (1 - l) + _TintColor.xyz * l;
 				//col.rgb = i.color.xyz;
-				col.a = a;
-
-				UNITY_APPLY_FOG(i.fogCoord, col);
+				col.a *= a;
+				
 				return col;
 			}
 			ENDCG

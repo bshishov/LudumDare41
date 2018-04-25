@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Data
 {
-    [CreateAssetMenu(fileName = "turret", menuName = "Assets/GamePlay/Turret")]
+    [CreateAssetMenu(fileName = "turret", menuName = "Gameplay/Turret")]
     public class TurretInfo : ScriptableObject
     {
         public string Name;
@@ -10,6 +10,6 @@ namespace Assets.Scripts.Data
         public Sprite Icon;
         public GameObject Prefab;
         public int Cost;
-        public int Cooldown;
+        public float Cooldown;
     }
 }
