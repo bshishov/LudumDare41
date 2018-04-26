@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 20
   Path: []
+  DestroyAtTheEnd: 1
 --- !u!114 &114774075816012692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -129,5 +130,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.22542028
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: -0.000000059604645}

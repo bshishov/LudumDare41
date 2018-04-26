@@ -61,7 +61,7 @@ MonoBehaviour:
   HitEffects:
   - DealDamage: 0
     Heal: 0
-    ApplyBuff: {fileID: 11400000, guid: f1781f268079a984bbd9555fec8b494e, type: 2}
+    ApplyBuff: {fileID: 11400000, guid: 8ea2d2e5c73d5a04ca6196dfc5863f53, type: 2}
     SpawnObject: {fileID: 0}
     WorldSpace: 0
     PlaySound: {fileID: 0}

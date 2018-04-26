@@ -242,8 +242,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e4f3c8135d480438ebbb1e01f06a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1
+  Speed: 10
   Path: []
+  DestroyAtTheEnd: 1
 --- !u!135 &135103147189385274
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -254,7 +255,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.36
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198080842991361238
 ParticleSystem:

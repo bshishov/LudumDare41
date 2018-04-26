@@ -103,7 +103,8 @@ MonoBehaviour:
   - DealDamage: 3
     Heal: 0
     ApplyBuff: {fileID: 0}
-    SpawnObject: {fileID: 0}
+    SpawnObject: {fileID: 1301176669332992, guid: 4e69496456b47f741949dd7b67ba0d9d,
+      type: 2}
     WorldSpace: 0
     PlaySound: {fileID: 0}
 --- !u!114 &114855828613430374
@@ -119,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 20
   Path: []
+  DestroyAtTheEnd: 1
 --- !u!135 &135318236108704804
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -129,5 +131,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.22542028
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: -0.000000059604645}

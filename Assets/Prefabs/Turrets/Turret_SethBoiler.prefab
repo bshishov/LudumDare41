@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a146fe6b0a17a3448a6e4e040a4d67f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 3
+  Range: 72
   AoEType: 2
   Direction: 1
   ReferenceOffset: {x: 0, y: 1.5, z: 0}
@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34515784bba3b914fafe763bdd995f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 1301176669332992, guid: 4e69496456b47f741949dd7b67ba0d9d, type: 2}
 --- !u!114 &114586349750935934
 MonoBehaviour:
   m_ObjectHideFlags: 1
