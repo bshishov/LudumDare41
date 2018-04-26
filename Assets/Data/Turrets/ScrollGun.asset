@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Scroll Gun
   Description: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300010, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1314494232712274, guid: 11e19437ec33b3049a063aa2591f25d9, type: 2}
   Cost: 0
   Cooldown: 0
+  PositionInBuildingMenu: {x: 3, y: 0}

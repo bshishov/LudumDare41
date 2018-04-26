@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Small Cannon
   Description: Shoots a stone that deals 1 damage
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1702989838412322, guid: 2dd4fd8f465383146a4806c0846f5e6e, type: 2}
   Cost: 3
   Cooldown: 1.5
+  PositionInBuildingMenu: {x: 1, y: 0}

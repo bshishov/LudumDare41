@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Light of Ra
   Description: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300036, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1526747811726900, guid: 6d01f3c5730f6fe40a7fea1ce448d560, type: 2}
   Cost: 0
   Cooldown: 0
+  PositionInBuildingMenu: {x: 0, y: 5}

@@ -4,13 +4,15 @@ namespace Assets.Scripts
 {
     public class PlayerController : MonoBehaviour
     {
-
         public float Speed = 0.07f;
         public float RotationSpeed = 0.3f;
         public float InitialJumpSpeed = 0.3f;
         public float JumpHoldSpeed = 0.01f;
-
         public GameObject Cylinder;
+        public float IsGroundedDelay = 0.1f;
+
+        [HideInInspector]
+        public bool IsLocked = false;
 
         private CharacterController _controller;
         private Animator _animator;
@@ -18,6 +20,7 @@ namespace Assets.Scripts
         // центр, вокруг которого производится движение
         private Vector3 _movingCenter;
         private float _movingRadius;
+        private float _currentGroundedDelay;
 
         private float _verticalSpeed;
         private Vector3 _movingVector = new Vector3(0f, 0f, 0f);
@@ -41,6 +44,10 @@ namespace Assets.Scripts
     
         void Update()
         {
+            _currentGroundedDelay += Time.deltaTime;
+            if (_controller.isGrounded)
+                _currentGroundedDelay = 0;
+
             _movingVector = Vector3.zero;
             CheckSideMoving();
             CheckJump();
@@ -51,6 +58,8 @@ namespace Assets.Scripts
         void CheckSideMoving()
         {
             var side = Input.GetAxis("Horizontal");
+            if (IsLocked)
+                side = 0f;
             _animator.SetFloat("Speed", Mathf.Abs(side));
             _movingVector = Camera.main.transform.right.normalized * side * Speed;
         }
@@ -68,10 +77,17 @@ namespace Assets.Scripts
 
         void CheckJump()
         {
-            if (_controller.collisionFlags == CollisionFlags.Below)
+            var isGrounded = Physics.Raycast(transform.TransformPoint(_controller.center), Vector3.down, _controller.height * 0.8f,
+                LayerMask.GetMask(Layers.Platform));
+            //var isGroundedCircle = Physics.SphereCast(transform.TransformPoint(_controller.center), _controller.radius * 1.1, Vector3.down);
+            //if (_controller.collisionFlags == CollisionFlags.Below)
+            //if (_controller.isGrounded || _currentGroundedDelay < IsGroundedDelay)
+            if(isGrounded)
             {
                 _verticalSpeed = 0f;
                 var jump = Input.GetAxis("Jump");
+                if (IsLocked)
+                    jump = 0f;
                 if (jump > 0)
                 {
                     _verticalSpeed = InitialJumpSpeed;
@@ -84,6 +100,8 @@ namespace Assets.Scripts
             else
             {
                 var jump = Input.GetAxis("Jump");
+                if (IsLocked)
+                    jump = 0f;
                 if (jump > 0)
                 {
                     _verticalSpeed += JumpHoldSpeed;

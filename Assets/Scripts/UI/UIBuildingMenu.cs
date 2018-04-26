@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Data;
 using Assets.Scripts.Utils;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -19,7 +20,14 @@ namespace Assets.Scripts.UI
 
         public TurretInfo ActiveSelection { get; set; }
         public TurretsList Turrets;
-        
+        public RectTransform Content;
+        public Vector2 Spacing;
+        public Vector2 ElementSize;
+
+        [Header("Description")]
+        public Text SelectedName;
+        public Text SelectedDescription;
+
         private UICanvasGroupFader _canvasGroupFader;
         private readonly List<UITurretItem> _turretItems = new List<UITurretItem>();
 
@@ -28,7 +36,15 @@ namespace Assets.Scripts.UI
             _canvasGroupFader = GetComponent<UICanvasGroupFader>();
             foreach (var turret in Turrets.Turrets)
             {
-                var tObj = GameObject.Instantiate(TurretItem, ScrollRect.content);
+                var pos = new Vector2(
+                    turret.PositionInBuildingMenu.x * (ElementSize.x + Spacing.x), 
+                    -turret.PositionInBuildingMenu.y * (ElementSize.y + Spacing.y));
+                var tObj = GameObject.Instantiate(TurretItem);
+                var rt = tObj.GetComponent<RectTransform>();
+                rt.SetParent(Content, false);
+                rt.anchoredPosition += pos;
+                rt.sizeDelta = ElementSize;
+
                 var t = tObj.GetComponent<UITurretItem>();
                 if (t == null)
                     continue;
@@ -49,6 +65,28 @@ namespace Assets.Scripts.UI
         {
             if (!IsActive)
                 return;
+
+            UpdateSelectionInfo();
+        }
+
+        public void UpdateSelectionInfo()
+        {
+            if (ActiveSelection != null)
+            {
+                if (SelectedName != null)
+                    SelectedName.text = ActiveSelection.Name;
+
+                if (SelectedDescription != null)
+                    SelectedDescription.text = ActiveSelection.Description;
+            }
+            else
+            {
+                if (SelectedName != null)
+                    SelectedName.text = "";
+
+                if (SelectedDescription != null)
+                    SelectedDescription.text = "";
+            }
         }
 
         private void MoveSelectionUp()

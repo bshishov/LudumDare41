@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Monument of Anubis
   Description: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300026, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1931761180942944, guid: e1dfb4d38890ae14baaee1bd069c4412, type: 2}
   Cost: 0
   Cooldown: 0
+  PositionInBuildingMenu: {x: 3, y: 4}

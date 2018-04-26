@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Altar of Fire
   Description: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300030, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1695546194827576, guid: bad7b3f41c72aab48997fe2acaf4c215, type: 2}
   Cost: 0
   Cooldown: 0
+  PositionInBuildingMenu: {x: 1, y: 4}
