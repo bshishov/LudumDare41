@@ -11,9 +11,11 @@ namespace Assets.Scripts.Turrets
 
         private Turret _turret;
         private Aoe _aoe;
+        private Buffable _buffable;
 
         void Start()
         {
+            _buffable = GetComponent<Buffable>();
             _turret = GetComponent<Turret>();
             _aoe = GetComponent<Aoe>();
             _turret.OnFire += TurretOnOnFire;
@@ -35,6 +37,9 @@ namespace Assets.Scripts.Turrets
                 var path = _aoe.ActivePath.ToArray();
                 path[0] = transform.TransformPoint(SourcePoint);
                 ray.SetPath(path, _aoe);
+
+                if(_buffable.AttackModifiers.Count > 0)
+                    ray.HitEffects.AddRange(_buffable.AttackModifiers);
             }
         }
 

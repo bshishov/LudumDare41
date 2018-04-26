@@ -434,6 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46f87cbc6cbb16409f984d39334c58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackModifiers: []
 --- !u!114 &114903578057465252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -448,6 +449,8 @@ MonoBehaviour:
   BaseSpeed: 3
   LadderSpeed: 10
   MaxHp: 10
+  DropSouls: 1
+  SoulPrefab: {fileID: 1018221541414438, guid: 41e1ff1a44cd73146b62eaa8fb25c6d3, type: 2}
 --- !u!137 &137366394864673824
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

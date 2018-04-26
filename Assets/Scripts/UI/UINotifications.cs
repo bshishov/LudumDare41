@@ -7,7 +7,7 @@ namespace Assets.Scripts.UI
     {
         public UINotification NotificationPrefab;
 
-        public void Show(Transform obj, string text, Color color, float time = 1f)
+        public void Show(Transform obj, string text, Color color, float time = 1f, float yOffset = 1f)
         {
             if(NotificationPrefab == null)   
                 return;
@@ -18,6 +18,7 @@ namespace Assets.Scripts.UI
             notification.Text.text = text;
             notification.Target = obj;
             notification.Text.color = color;
+            notification.Offset += new Vector3(0, yOffset, 0);
         }
     }
 }

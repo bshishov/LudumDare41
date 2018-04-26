@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Data;
+﻿using System.Collections.Generic;
+using Assets.Scripts.Data;
 using Assets.Scripts.Utils;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ namespace Assets.Scripts
         public bool Piercing = false;
 
         [SerializeField]
-        public Effect[] HitEffects;
+        public List<Effect> HitEffects;
 
         void Start ()
         {

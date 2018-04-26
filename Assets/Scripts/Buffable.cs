@@ -23,6 +23,7 @@ namespace Assets.Scripts
         private readonly List<BuffState> _statesToRemove = new List<BuffState>();
 
         public event Action<Effect> OnApplyEffect;
+        public List<Effect> AttackModifiers = new List<Effect>();
         public float CooldownModifier { get; private set; }
         public float DamageModifier { get; private set; }
         public float SpeedModifier { get; private set; }
@@ -61,6 +62,9 @@ namespace Assets.Scripts
                 SpeedModifier -= buffState.Buff.SpeedModifier;
                 HpModifier -= buffState.Buff.HpModifier;
 
+                if (buffState.Buff.AttackModifier != null && AttackModifiers.Contains(buffState.Buff.AttackModifier))
+                    AttackModifiers.Remove(buffState.Buff.AttackModifier);
+
                 ApplyEffects(buffState.Buff.OnRemoveEffects);
                 _states.Remove(buffState);
             }
@@ -89,6 +93,9 @@ namespace Assets.Scripts
                 DamageModifier += buff.DamageModifier;
                 SpeedModifier += buff.SpeedModifier;
                 HpModifier += buff.HpModifier;
+
+                if(buff.AttackModifier != null)
+                    AttackModifiers.Add(buff.AttackModifier);
 
                 ApplyEffects(buff.OnApplyEffects);
             }

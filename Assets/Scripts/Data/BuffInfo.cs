@@ -27,5 +27,8 @@ namespace Assets.Scripts.Data
 
         [SerializeField]
         public Effect[] OnRemoveEffects;
+
+        [SerializeField]
+        public Effect AttackModifier;
     }
 }

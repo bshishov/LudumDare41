@@ -10,9 +10,11 @@ namespace Assets.Scripts.Turrets
 
         private Turret _turret;
         private Aoe _aoe;
+        private Buffable _buffable;
 
         void Start()
         {
+            _buffable = GetComponent<Buffable>();
             _turret = GetComponent<Turret>();
             _aoe = GetComponent<Aoe>();
             _turret.OnFire += TurretOnOnFire;
@@ -29,7 +31,17 @@ namespace Assets.Scripts.Turrets
             var projectileObj = GameObject.Instantiate(Projectile, transform.position, Quaternion.identity);
             var pathFollow = projectileObj.GetComponent<PathFollow>();
             if (pathFollow != null)
+            {
+                pathFollow.Speed *= _buffable.SpeedMultiplier;
                 pathFollow.Go(_aoe.ActivePath);
+            }
+
+            var projectile = projectileObj.GetComponent<Projectile>();
+            if (projectile != null)
+            {
+                if (_buffable.AttackModifiers.Count > 0)
+                    projectile.HitEffects.AddRange(_buffable.AttackModifiers);
+            }
         }
     }
 }

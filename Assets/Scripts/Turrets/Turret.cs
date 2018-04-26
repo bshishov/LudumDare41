@@ -28,13 +28,13 @@ namespace Assets.Scripts.Turrets
         public int Burst = 1;
 
 
-        public float CooldownPercentage { get { return Mathf.Clamp01(1 - _cd / Cooldown); } }
+        public float CooldownPercentage { get { return Mathf.Clamp01(1 - _timeSinceLastActivation / Cooldown); } }
         public Vector2Int GridCoords { get; private set; }
         public Direction Direction { get { return _aoe.Direction; } }
 
         public event Action OnFire;
 
-        private float _cd = 0f;
+        private float _timeSinceLastActivation = 0f;
         private float _burstCd = 0f;
         private int _burstsDone;
         private Buffable _buffable;
@@ -50,7 +50,7 @@ namespace Assets.Scripts.Turrets
         void Start ()
         {
             GridCoords = PlacementGrid.Instance.WorldToCoords(transform.position);
-            _cd = Cooldown + 1f;
+            _timeSinceLastActivation = Cooldown + 1f;
             _buffable = GetComponent<Buffable>();
         }
 
@@ -66,11 +66,11 @@ namespace Assets.Scripts.Turrets
 	
         void Update ()
         {
-            _cd += Time.deltaTime * _buffable.CooldownInvMultiplier;
+            _timeSinceLastActivation += Time.deltaTime * _buffable.CooldownInvMultiplier;
 
             if (_aoe.ObjectsInAoE != null && _aoe.ObjectsInAoE.Count > 0)
             {
-                if (FireMode == ActivationType.Automatic && _cd > Cooldown)
+                if (FireMode == ActivationType.Automatic && _timeSinceLastActivation > Cooldown)
                 {
                     _burstCd += Time.deltaTime * _buffable.CooldownInvMultiplier;
                     if (_burstCd > BurstDelay)
@@ -85,14 +85,14 @@ namespace Assets.Scripts.Turrets
                         {
                             _burstsDone = 0;
                             _burstCd = 0;
-                            _cd = 0;
+                            _timeSinceLastActivation = 0;
                         }
                     }
                 }
             }
             else
             {
-                //_cd = Cooldown + 1f;
+                //_timeSinceLastActivation = Cooldown + 1f;
                 _burstCd = BurstDelay + 1f;
                 _burstsDone = 0;
             }
@@ -104,12 +104,12 @@ namespace Assets.Scripts.Turrets
             if(FireMode != ActivationType.Manual)
                 return;
 
-            if (_cd > Cooldown)
+            if (_timeSinceLastActivation > Cooldown)
             {
                 if (OnFire != null)
                     OnFire();
 
-                _cd = 0;
+                _timeSinceLastActivation = 0;
             }
         }
 

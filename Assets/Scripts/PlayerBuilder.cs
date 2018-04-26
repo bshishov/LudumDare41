@@ -5,6 +5,7 @@ using Assets.Scripts.Data;
 using Assets.Scripts.Turrets;
 using Assets.Scripts.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
@@ -16,10 +17,14 @@ namespace Assets.Scripts
         public float TurretRadiusOffset;
         public float TurretHeightOffset;
         public float Resource;
+
+        [Header("Controls")]
         public KeyCode BuildKey;
         public KeyCode OpenBuildingMenuKey;
         public KeyCode RotateKey;
         public KeyCode DestroyKey;
+
+        [Header("Misc")] public Text ResourceText;
 
         private Animator _animator;
         private CharacterController _characterController;
@@ -29,6 +34,7 @@ namespace Assets.Scripts
         {
             _animator = GetComponent<Animator>();
             _characterController = GetComponent<CharacterController>();
+            UpdateResourceUI();
         }
         
         void Update ()
@@ -40,7 +46,10 @@ namespace Assets.Scripts
             {
                 var turret = TurretInRange();
                 if (turret != null)
+                {
                     turret.Activate();
+                    _animator.SetTrigger("Cast");
+                }
                 else
                     TryBuild();
             }
@@ -58,6 +67,22 @@ namespace Assets.Scripts
             }
         }
 
+        public void AddSouls(int amount)
+        {
+            if (amount > 0)
+            {
+                UINotifications.Instance.Show(transform, amount.ToString(), Color.cyan, yOffset: 2f);
+                Resource += amount;
+                UpdateResourceUI();
+            }
+        }
+
+        private void UpdateResourceUI()
+        {
+            if (ResourceText != null)
+                ResourceText.text = Resource.ToString();
+        }
+
         private void TryBuild()
         {
             if(!UIBuildingMenu.Instance.IsActive)
@@ -68,17 +93,18 @@ namespace Assets.Scripts
                 return;
             if (Resource < activeSelection.Cost)
             {
-                UINotifications.Instance.Show(transform, "Not enough souls", Color.red);
+                UINotifications.Instance.Show(transform, "Not enough souls", Color.red, yOffset: 2f);
                 return;
             }
 
             if (!CanPlace())
             {
-                UINotifications.Instance.Show(transform, "Can't build here", Color.red);
+                UINotifications.Instance.Show(transform, "Can't build here", Color.red, yOffset: 2f);
                 return;
             }
 
             Resource -= activeSelection.Cost;
+            UpdateResourceUI();
             _animator.SetTrigger("Cast");
             PlaceTurret(activeSelection);
         }

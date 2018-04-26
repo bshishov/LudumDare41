@@ -15,6 +15,8 @@ namespace Assets.Scripts
         public float BaseSpeed = 3.5f;
         public float LadderSpeed = 0.5f;
         public float MaxHp = 10;
+        public int DropSouls = 1;
+        public GameObject SoulPrefab;
         public float CurrentHp { get; private set; }
 
         private Vector3 _target;
@@ -66,26 +68,24 @@ namespace Assets.Scripts
 
         public void TakeDamage(float amount)
         {
-            UINotifications.Instance.Show(gameObject.transform, amount.ToString(), Color.red);
+            UINotifications.Instance.Show(gameObject.transform, amount.ToString(), Color.red, yOffset: 2f);
 
             CurrentHp -= amount;
             if (CurrentHp < 1f)
-                Destroy(gameObject);
+                Die();
         }
 
         public void Heal(float amount)
         {
             CurrentHp = Mathf.Max(CurrentHp + amount, MaxHp);
 
-            UINotifications.Instance.Show(gameObject.transform, amount.ToString(), Color.green);
+            UINotifications.Instance.Show(gameObject.transform, amount.ToString(), Color.green, yOffset: 2f);
         }
 
         public void ApplyEffect(Effect effect)
         {
             if (effect.DealDamage > 0)
-            {
                 TakeDamage(effect.DealDamage);
-            }
 
             if (effect.Heal > 0)
                 Heal(effect.Heal);
@@ -100,6 +100,18 @@ namespace Assets.Scripts
                 else
                     GameObject.Instantiate(effect.SpawnObject, transform);
             }
+        }
+
+        public void Die()
+        {
+            if (SoulPrefab != null)
+            {
+                var soulObj = GameObject.Instantiate(SoulPrefab, transform.position, Quaternion.identity);
+                var soul = soulObj.GetComponent<Soul>();
+                if(soul != null)
+                    soul.Value = DropSouls;
+            }
+            Destroy(gameObject);
         }
 
         void OnDrawGizmosSelected()
