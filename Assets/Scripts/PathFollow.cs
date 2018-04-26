@@ -7,6 +7,7 @@ namespace Assets.Scripts
     {
         public float Speed = 1f;
         public List<Vector3> Path;
+        public bool DestroyAtTheEnd = true;
 
         private int _aIndex = 0;
         private float _t = 0f;
@@ -16,8 +17,12 @@ namespace Assets.Scripts
             if(Path == null || Path.Count < 2)
                 return;
 
-            if(_aIndex == Path.Count - 1)
+            if (_aIndex == Path.Count - 1)
+            {
+                if(DestroyAtTheEnd)
+                    Destroy(gameObject);
                 return;
+            }
 
             var a = Path[_aIndex];
             var b = Path[_aIndex + 1];

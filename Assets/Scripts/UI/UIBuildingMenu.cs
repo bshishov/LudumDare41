@@ -18,7 +18,7 @@ namespace Assets.Scripts.UI
         public ScrollRect ScrollRect;
 
         public TurretInfo ActiveSelection { get; set; }
-        public TurretInfo[] Turrets;
+        public TurretsList Turrets;
         
         private UICanvasGroupFader _canvasGroupFader;
         private readonly List<UITurretItem> _turretItems = new List<UITurretItem>();
@@ -26,7 +26,7 @@ namespace Assets.Scripts.UI
         void Start ()
         {
             _canvasGroupFader = GetComponent<UICanvasGroupFader>();
-            foreach (var turret in Turrets)
+            foreach (var turret in Turrets.Turrets)
             {
                 var tObj = GameObject.Instantiate(TurretItem, ScrollRect.content);
                 var t = tObj.GetComponent<UITurretItem>();

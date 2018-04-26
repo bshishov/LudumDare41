@@ -40,8 +40,8 @@ GameObject:
   - component: {fileID: 114927642349861626}
   - component: {fileID: 114161520537274852}
   - component: {fileID: 114948991896273556}
-  - component: {fileID: 136451998811170128}
   - component: {fileID: 54764079061166408}
+  - component: {fileID: 136451998811170128}
   m_Layer: 0
   m_Name: Turret_ObeliskRed
   m_TagString: Turret
@@ -217,9 +217,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Info: {fileID: 0}
   FireMode: 0
-  Cooldown: 1
-  BurstDelay: 0.1
-  Burst: 1
+  Cooldown: 3
+  BurstDelay: 1
+  Burst: 3
 --- !u!114 &114927642349861626
 MonoBehaviour:
   m_ObjectHideFlags: 1

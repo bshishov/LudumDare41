@@ -85,17 +85,15 @@ namespace Assets.Scripts
             var pCenter = PlacementGrid.Instance.CenterOfCell(c1);
             var pLeft = PlacementGrid.Instance.CenterOfCell(cLeft);
             var pRight = PlacementGrid.Instance.CenterOfCell(cRight);
-
+            
             if (!HitPlatform(pCenter))
                 return false;
 
-            if (!HitPlatform(pLeft))
-                return false;
+            var leftHit = HitPlatform(pLeft);
+            var rightHit = HitPlatform(pRight);
 
-            if (!HitPlatform(pRight))
-                return false;
-
-            return true;
+            return leftHit && rightHit;
+            //return leftHit || rightHit;
         }
 
         private bool HitPlatform(Vector3 p)

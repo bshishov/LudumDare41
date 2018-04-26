@@ -89,8 +89,8 @@ GameObject:
   - component: {fileID: 114387328483703314}
   - component: {fileID: 114858710154688124}
   - component: {fileID: 114297696084480096}
-  - component: {fileID: 136239727068698300}
   - component: {fileID: 54822540910905834}
+  - component: {fileID: 136239727068698300}
   m_Layer: 0
   m_Name: Turret_PitOfTheDead
   m_TagString: Turret
@@ -347,7 +347,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5acc8e8e438cfcc4096b32357e48c51f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Buffs: []
+  Buffs:
+  - {fileID: 11400000, guid: 4655db7670f10e9418cbff2314bb5253, type: 2}
 --- !u!114 &114387328483703314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -374,7 +375,8 @@ MonoBehaviour:
   AoEType: 4
   Direction: 0
   ReferenceOffset: {x: 0, y: 1.5, z: 0}
-  TargetTags: []
+  TargetTags:
+  - Enemy
 --- !u!114 &114858710154688124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -388,9 +390,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Info: {fileID: 0}
   FireMode: 0
-  Cooldown: 1
-  BurstDelay: 0.1
-  Burst: 1
+  Cooldown: 40
+  BurstDelay: 1
+  Burst: 10
 --- !u!136 &136239727068698300
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 114106122826520562}
   - component: {fileID: 114234976794631900}
   - component: {fileID: 114085078498770676}
-  - component: {fileID: 136921591276417456}
   - component: {fileID: 54514477815981878}
+  - component: {fileID: 136921591276417456}
   m_Layer: 0
   m_Name: Turret_RaFire
   m_TagString: Turret

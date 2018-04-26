@@ -15,8 +15,8 @@ MonoBehaviour:
   - EnemyPrefab: {fileID: 1974188809632818, guid: 84b957030435f4947814f8e19388fe9e,
       type: 2}
     NumberOfThisType: 2
-    DelayBetween: 0.1
-    DelayBeforeNext: 0.1
+    DelayBetween: 10
+    DelayBeforeNext: 3
   - EnemyPrefab: {fileID: 1167554545061500, guid: 0408d59b11ae17b46ae6e5d9969f9b66,
       type: 2}
     NumberOfThisType: 2

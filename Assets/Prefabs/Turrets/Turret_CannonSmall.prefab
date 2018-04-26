@@ -36,12 +36,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4471689199361948}
-  - component: {fileID: 114922070175073992}
+  - component: {fileID: 54851499445017558}
+  - component: {fileID: 136391006673037686}
   - component: {fileID: 114729168800353988}
+  - component: {fileID: 114922070175073992}
   - component: {fileID: 114386948454565032}
   - component: {fileID: 114351011411588632}
-  - component: {fileID: 136391006673037686}
-  - component: {fileID: 54851499445017558}
   m_Layer: 0
   m_Name: Turret_CannonSmall
   m_TagString: Turret
@@ -186,7 +186,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: b094347c81deab2448b4fd3c0a437d1f, type: 2}
+  - {fileID: 2100000, guid: a593df27c524c1747b58fc1a712f8c6e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34515784bba3b914fafe763bdd995f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 1537658887466704, guid: 8ae2ae07ad39c1a43a102e37587a5e92, type: 2}
 --- !u!114 &114386948454565032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -299,9 +299,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9709332ba0eca24c8020f3ec356e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Info: {fileID: 0}
+  Info: {fileID: 11400000, guid: 927b27d1a7226784da37d398f009c061, type: 2}
   FireMode: 0
-  Cooldown: 1
+  Cooldown: 1.5
   BurstDelay: 0.1
   Burst: 1
 --- !u!114 &114729168800353988
@@ -326,11 +326,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a146fe6b0a17a3448a6e4e040a4d67f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 3
+  Range: 7
   AoEType: 1
   Direction: 1
   ReferenceOffset: {x: 0, y: 1.5, z: 0}
-  TargetTags: []
+  TargetTags:
+  - Enemy
 --- !u!136 &136391006673037686
 CapsuleCollider:
   m_ObjectHideFlags: 1

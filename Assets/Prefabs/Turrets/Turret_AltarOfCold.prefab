@@ -74,8 +74,8 @@ GameObject:
   - component: {fileID: 114045626354188104}
   - component: {fileID: 114518705131623008}
   - component: {fileID: 114039773531871272}
-  - component: {fileID: 114607182939691058}
   - component: {fileID: 54065986553498896}
+  - component: {fileID: 114607182939691058}
   m_Layer: 0
   m_Name: Turret_AltarOfCold
   m_TagString: Turret

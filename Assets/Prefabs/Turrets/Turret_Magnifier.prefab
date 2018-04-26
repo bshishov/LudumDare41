@@ -106,8 +106,8 @@ GameObject:
   - component: {fileID: 114081637173605132}
   - component: {fileID: 114801961528867482}
   - component: {fileID: 114751723576719804}
-  - component: {fileID: 136781604654094206}
   - component: {fileID: 54348657284146616}
+  - component: {fileID: 136781604654094206}
   m_Layer: 0
   m_Name: Turret_Magnifier
   m_TagString: Turret
@@ -212,7 +212,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fde1e99af58022f4aa8fa5a797f02bef, type: 3}
+  - {fileID: 2100000, guid: c40f5cb7e51016d4693723be279c595a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

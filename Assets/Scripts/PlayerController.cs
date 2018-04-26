@@ -32,7 +32,7 @@ namespace Assets.Scripts
             _controller = GetComponent<CharacterController>();
             _animator = GetComponent<Animator>();
 
-            Physics.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer(Layers.Default));
+            Physics.IgnoreLayerCollision(LayerMask.NameToLayer(Layers.Player), LayerMask.NameToLayer(Layers.Default));
 
             _movingCenter = Cylinder.transform.position;
             var playerFromCenter = transform.position - new Vector3(_movingCenter.x, transform.position.y, _movingCenter.z);

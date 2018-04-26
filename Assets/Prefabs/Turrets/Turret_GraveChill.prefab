@@ -40,8 +40,8 @@ GameObject:
   - component: {fileID: 114810317399658268}
   - component: {fileID: 114796570382123268}
   - component: {fileID: 114226195342618342}
-  - component: {fileID: 114329113420054002}
   - component: {fileID: 54413789301808290}
+  - component: {fileID: 114329113420054002}
   m_Layer: 0
   m_Name: Turret_GraveChill
   m_TagString: Turret
@@ -246,9 +246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9709332ba0eca24c8020f3ec356e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Info: {fileID: 0}
+  Info: {fileID: 11400000, guid: 7eeea9e01cd94e046ba16a85ed868e97, type: 2}
   FireMode: 0
-  Cooldown: 1
+  Cooldown: 5
   BurstDelay: 0.1
   Burst: 1
 --- !u!114 &114329113420054002
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd531dbd3e7cd2449adcb43e359657a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ZoneObj: {fileID: 0}
+  ZoneObj: {fileID: 1828909133371846, guid: 8c99da987a59ca942958bde67913f5d2, type: 2}
 --- !u!114 &114796570382123268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,7 +289,8 @@ MonoBehaviour:
   AoEType: 0
   Direction: 0
   ReferenceOffset: {x: 0, y: 1.5, z: 0}
-  TargetTags: []
+  TargetTags:
+  - Enemy
 --- !u!136 &136534859229266396
 CapsuleCollider:
   m_ObjectHideFlags: 1

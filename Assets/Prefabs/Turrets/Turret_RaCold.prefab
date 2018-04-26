@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 114018296784039308}
   - component: {fileID: 114181727479752716}
   - component: {fileID: 114115427615686554}
-  - component: {fileID: 136180559482584772}
   - component: {fileID: 54526847214498688}
+  - component: {fileID: 136180559482584772}
   m_Layer: 0
   m_Name: Turret_RaCold
   m_TagString: Turret

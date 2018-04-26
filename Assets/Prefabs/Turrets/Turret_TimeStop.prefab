@@ -40,8 +40,8 @@ GameObject:
   - component: {fileID: 114153319674816312}
   - component: {fileID: 114968966748020796}
   - component: {fileID: 114954131746108002}
-  - component: {fileID: 114148069526745174}
   - component: {fileID: 54032674591526688}
+  - component: {fileID: 114148069526745174}
   m_Layer: 0
   m_Name: Turret_TimeStop
   m_TagString: Untagged
@@ -314,7 +314,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7b9fc53175233c348a066206662735fc, type: 3}
+  - {fileID: 2100000, guid: 4b05b040cc5638e4fa5e33a5a685af7d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -388,7 +388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5acc8e8e438cfcc4096b32357e48c51f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Buffs: []
+  Buffs:
+  - {fileID: 11400000, guid: 8740e720144eac243a81a688e831d930, type: 2}
 --- !u!114 &114153319674816312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -420,8 +421,8 @@ MonoBehaviour:
   Info: {fileID: 0}
   FireMode: 0
   Cooldown: 40
-  BurstDelay: 0.1
-  Burst: 1
+  BurstDelay: 1
+  Burst: 40
 --- !u!114 &114968966748020796
 MonoBehaviour:
   m_ObjectHideFlags: 1
