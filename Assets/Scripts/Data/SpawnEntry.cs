@@ -10,5 +10,6 @@ namespace Assets.Scripts.Data
         public int NumberOfThisType = 1;
         public float DelayBetween = 0.1f;
         public float DelayBeforeNext = 0.5f;
+        public int SpawnIndex = 0;
     }
 }

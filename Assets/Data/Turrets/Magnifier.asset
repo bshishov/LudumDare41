@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Magnifier
   Description: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300022, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1937677014237194, guid: fc7d2732b04bf2d4b90a5b377a057b79, type: 2}
   Cost: 0
   Cooldown: 0
+  PositionInBuildingMenu: {x: 0, y: 3}

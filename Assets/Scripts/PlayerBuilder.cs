@@ -17,51 +17,83 @@ namespace Assets.Scripts
         public float TurretRadiusOffset;
         public float TurretHeightOffset;
         public float Resource;
+        [Range(0, 1)]
+        public float Cashback;
 
         [Header("Controls")]
-        public KeyCode BuildKey;
-        public KeyCode OpenBuildingMenuKey;
-        public KeyCode RotateKey;
-        public KeyCode DestroyKey;
+        public string BuildActivateButton;
+        public string OpenBuildingMenuButton;
+        public string RotateButton;
+        public string DestroyButton;
 
         [Header("Misc")] public Text ResourceText;
 
         private Animator _animator;
         private CharacterController _characterController;
+        private PlayerController _playerController;
         private readonly Dictionary<Vector2Int, Turret> _placedTurrets = new Dictionary<Vector2Int, Turret>();
 
         void Start ()
         {
             _animator = GetComponent<Animator>();
             _characterController = GetComponent<CharacterController>();
+            _playerController = GetComponent<PlayerController>();
             UpdateResourceUI();
         }
         
         void Update ()
         {
-            if (Input.GetKeyDown(OpenBuildingMenuKey))
-                UIBuildingMenu.Instance.Toggle();
-
-            if (Input.GetKeyDown(BuildKey))
+            if (UIBuildingMenu.Instance.IsActive)
             {
-                var turret = TurretInRange();
-                if (turret != null)
+                if (Input.GetButtonDown(OpenBuildingMenuButton) || Input.GetButtonDown("Cancel"))
                 {
-                    turret.Activate();
-                    _animator.SetTrigger("Cast");
+                    _playerController.IsLocked = false;
+                    UIBuildingMenu.Instance.Hide();
                 }
-                else
-                    TryBuild();
+
+                if (UIBuildingMenu.Instance.ActiveSelection != null)
+                {
+                    if (Input.GetButtonDown(BuildActivateButton) || Input.GetButtonDown("Submit"))
+                    {
+                        TryBuild();
+                    }
+                }
+            }
+            else
+            {
+                if (Input.GetButtonDown(OpenBuildingMenuButton))
+                {
+                    if (CanPlace())
+                    {
+                        _playerController.IsLocked = true;
+                        UIBuildingMenu.Instance.Show();
+                    }
+                    else
+                    {
+                        UINotifications.Instance.Show(transform, "Can't build here", Color.red, yOffset: 2f);
+                    }
+                }
+
+                if (Input.GetButtonDown(BuildActivateButton))
+                {
+                    var turret = TurretInRange();
+                    if (turret != null)
+                    {
+                        turret.Activate();
+                        _animator.SetTrigger("Cast");
+                    }
+                }
             }
 
-            if (Input.GetKeyDown(RotateKey))
+
+            if (Input.GetButtonDown(RotateButton))
             {
                 var turret = TurretInRange();
                 if (turret != null)
                     turret.ChangeDirection();
             }
 
-            if (Input.GetKeyDown(DestroyKey))
+            if (Input.GetButtonDown(DestroyButton))
             {
                 TryDestroy();
             }
@@ -99,7 +131,7 @@ namespace Assets.Scripts
 
             if (!CanPlace())
             {
-                UINotifications.Instance.Show(transform, "Can't build here", Color.red, yOffset: 2f);
+                UINotifications.Instance.Show(transform, "Turret can't be placed here", Color.red, yOffset: 2f);
                 return;
             }
 
@@ -107,6 +139,8 @@ namespace Assets.Scripts
             UpdateResourceUI();
             _animator.SetTrigger("Cast");
             PlaceTurret(activeSelection);
+            UIBuildingMenu.Instance.Hide();
+            _playerController.IsLocked = false;
         }
 
         private bool CanPlace()
@@ -154,6 +188,8 @@ namespace Assets.Scripts
             if (_placedTurrets.ContainsKey(coords))
             {
                 var t = _placedTurrets[coords];
+                if (t.Info != null)
+                    AddSouls(Mathf.CeilToInt(t.Info.Cost * Cashback));
                 Destroy(t.gameObject);
                 _placedTurrets.Remove(coords);
             }

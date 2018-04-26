@@ -10,6 +10,9 @@ namespace Assets.Scripts.Data
         public Sprite Icon;
         public GameObject Prefab;
         public int Cost;
+
+        [HideInInspector]
         public float Cooldown;
+        public Vector2Int PositionInBuildingMenu;
     }
 }

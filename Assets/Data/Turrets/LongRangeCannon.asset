@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f4ee30ec838cb4438081ac0d5bbe333, type: 3}
-  m_Name: AltarOfWind
+  m_Name: LongRangeCannon
   m_EditorClassIdentifier: 
-  Name: Altar of Wind
+  Name: Long Range Cannon
   Description: 
-  Icon: {fileID: 21300034, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
-  Prefab: {fileID: 1336096878186484, guid: 1275ee6b792c4d94fa55852993c6b3c6, type: 2}
+  Icon: {fileID: 21300006, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
+  Prefab: {fileID: 0}
   Cost: 0
   Cooldown: 0
-  PositionInBuildingMenu: {x: 2, y: 4}
+  PositionInBuildingMenu: {x: 1, y: 1}

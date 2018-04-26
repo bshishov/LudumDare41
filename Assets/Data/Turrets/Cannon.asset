@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Cannon
   Description: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300004, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1877965952825448, guid: 58e01553959e67a4d9733d4bacf009a0, type: 2}
   Cost: 25
   Cooldown: 0
+  PositionInBuildingMenu: {x: 2, y: 0}

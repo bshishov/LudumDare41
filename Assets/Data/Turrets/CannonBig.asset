@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Big Cannon
   Description: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300008, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1098985799659470, guid: 90b3b1c27c53fc944bc81f18b49b4558, type: 2}
   Cost: 50
   Cooldown: 0
+  PositionInBuildingMenu: {x: 0, y: 1}
