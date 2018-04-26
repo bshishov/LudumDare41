@@ -205,7 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseSpeed: 3.7
   LadderSpeed: 10
-  MaxHp: 12
+  MaxHp: 50
   DropSouls: 1
   SoulPrefab: {fileID: 1018221541414438, guid: 41e1ff1a44cd73146b62eaa8fb25c6d3, type: 2}
 --- !u!114 &114612679949935030

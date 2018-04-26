@@ -374,10 +374,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04baad3bbed4b7c41a86bf4e6de813b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseSpeed: 4
+  BaseSpeed: 3
   LadderSpeed: 10
-  MaxHp: 5
-  DropSouls: 1
+  MaxHp: 20
+  DropSouls: 15
   SoulPrefab: {fileID: 1018221541414438, guid: 41e1ff1a44cd73146b62eaa8fb25c6d3, type: 2}
 --- !u!137 &137616732112339272
 SkinnedMeshRenderer:
@@ -451,7 +451,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

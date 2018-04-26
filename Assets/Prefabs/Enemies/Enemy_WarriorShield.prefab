@@ -448,8 +448,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseSpeed: 3
   LadderSpeed: 10
-  MaxHp: 10
-  DropSouls: 1
+  MaxHp: 30
+  DropSouls: 20
   SoulPrefab: {fileID: 1018221541414438, guid: 41e1ff1a44cd73146b62eaa8fb25c6d3, type: 2}
 --- !u!137 &137366394864673824
 SkinnedMeshRenderer:

@@ -100,7 +100,7 @@ MonoBehaviour:
   TTL: 10
   Piercing: 0
   HitEffects:
-  - DealDamage: 7
+  - DealDamage: 10
     Heal: 0
     ApplyBuff: {fileID: 0}
     SpawnObject: {fileID: 0}

@@ -1194,6 +1194,11 @@ Prefab:
       propertyPath: ResourceText
       value: 
       objectReference: {fileID: 2076174831}
+    - target: {fileID: 114746746211906452, guid: 930f795366d378047a251ef22059ccd3,
+        type: 2}
+      propertyPath: Resource
+      value: 280
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 930f795366d378047a251ef22059ccd3, type: 2}
   m_IsPrefabParent: 0
@@ -1984,8 +1989,8 @@ MonoBehaviour:
   - {fileID: 934331278}
   Target: {fileID: 956750104}
   Waves:
-  - {fileID: 11400000, guid: b2568eea5cc2a894987e4042f379b994, type: 2}
-  TimeBetweenWaves: 3
+  - {fileID: 11400000, guid: a6623f2508c2b404c8ea228026f1fa66, type: 2}
+  TimeBetweenWaves: 0.000001
 --- !u!4 &989964159 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4418319054026744, guid: e776c1f9ec296c346a43c08a08990abf,
