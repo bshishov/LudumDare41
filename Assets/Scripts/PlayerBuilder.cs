@@ -19,6 +19,7 @@ namespace Assets.Scripts
         public KeyCode BuildKey;
         public KeyCode OpenBuildingMenuKey;
         public KeyCode RotateKey;
+        public KeyCode DestroyKey;
 
         private Animator _animator;
         private CharacterController _characterController;
@@ -34,15 +35,26 @@ namespace Assets.Scripts
         {
             if (Input.GetKeyDown(OpenBuildingMenuKey))
                 UIBuildingMenu.Instance.Toggle();
-            
+
             if (Input.GetKeyDown(BuildKey))
-                TryBuild();
+            {
+                var turret = TurretInRange();
+                if (turret != null)
+                    turret.Activate();
+                else
+                    TryBuild();
+            }
 
             if (Input.GetKeyDown(RotateKey))
             {
                 var turret = TurretInRange();
                 if (turret != null)
                     turret.ChangeDirection();
+            }
+
+            if (Input.GetKeyDown(DestroyKey))
+            {
+                TryDestroy();
             }
         }
 
@@ -108,6 +120,17 @@ namespace Assets.Scripts
                 return _placedTurrets[coords];
 
             return null;
+        }
+
+        private void TryDestroy()
+        {
+            var coords = PlacementGrid.Instance.WorldToCoords(transform.TransformPoint(ReferencePoint));
+            if (_placedTurrets.ContainsKey(coords))
+            {
+                var t = _placedTurrets[coords];
+                Destroy(t.gameObject);
+                _placedTurrets.Remove(coords);
+            }
         }
 
         private void PlaceTurret(TurretInfo turret)
