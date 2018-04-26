@@ -66,11 +66,11 @@ namespace Assets.Scripts
 
         public void TakeDamage(float amount)
         {
+            UINotifications.Instance.Show(gameObject.transform, amount.ToString(), Color.red);
+
             CurrentHp -= amount;
             if (CurrentHp < 1f)
                 Destroy(gameObject);
-
-            UINotifications.Instance.Show(gameObject.transform, amount.ToString(), Color.red);
         }
 
         public void Heal(float amount)
