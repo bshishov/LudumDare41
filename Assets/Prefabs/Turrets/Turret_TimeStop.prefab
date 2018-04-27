@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a146fe6b0a17a3448a6e4e040a4d67f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 10
+  Range: 2
   AoEType: 4
   Direction: 0
   ReferenceOffset: {x: 0, y: 1.5, z: 0}
@@ -418,11 +418,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9709332ba0eca24c8020f3ec356e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Info: {fileID: 0}
+  Info: {fileID: 11400000, guid: 4896a5dbb2bb50f4ba69485d6aaacc8a, type: 2}
   FireMode: 0
-  Cooldown: 40
+  Cooldown: 60
   BurstDelay: 1
-  Burst: 40
+  Burst: 60
 --- !u!114 &114968966748020796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -434,6 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46f87cbc6cbb16409f984d39334c58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackModifiers: []
 --- !u!136 &136546414236380992
 CapsuleCollider:
   m_ObjectHideFlags: 1

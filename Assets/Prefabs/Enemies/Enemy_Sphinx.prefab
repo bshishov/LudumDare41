@@ -302,10 +302,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04baad3bbed4b7c41a86bf4e6de813b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseSpeed: 4
-  LadderSpeed: 10
-  MaxHp: 50
-  DropSouls: 1
+  BaseSpeed: 1
+  LadderSpeed: 5
+  MaxHp: 750
+  DropSouls: 100
   SoulPrefab: {fileID: 1018221541414438, guid: 41e1ff1a44cd73146b62eaa8fb25c6d3, type: 2}
 --- !u!137 &137858163630423304
 SkinnedMeshRenderer:

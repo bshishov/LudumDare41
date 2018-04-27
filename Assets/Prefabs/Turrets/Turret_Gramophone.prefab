@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114534685593857190}
   - component: {fileID: 114973647360738538}
   - component: {fileID: 114571892714585612}
-  - component: {fileID: 114549333358111886}
+  - component: {fileID: 114026844555068836}
   m_Layer: 0
   m_Name: Turret_Gramophone
   m_TagString: Turret
@@ -204,6 +204,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114026844555068836
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1571110524126784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34515784bba3b914fafe763bdd995f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Projectile: {fileID: 1511262627962646, guid: 50361d2c51e0a8e458c0950a8a9a14c4, type: 2}
 --- !u!114 &114534685593857190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,25 +227,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a146fe6b0a17a3448a6e4e040a4d67f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 3
+  Range: 40
   AoEType: 1
   Direction: 1
   ReferenceOffset: {x: 0, y: 0, z: 0}
   TargetTags:
   - Enemy
---- !u!114 &114549333358111886
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1571110524126784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc4ca1945c2f395458c892f2dee0a801, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SourcePoint: {x: 0, y: 2.83, z: 1.09}
-  Ray: {fileID: 1511262627962646, guid: 50361d2c51e0a8e458c0950a8a9a14c4, type: 2}
 --- !u!114 &114571892714585612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -247,7 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Info: {fileID: 11400000, guid: 8f763716302a61d4996703ce8fb2eddd, type: 2}
   FireMode: 0
-  Cooldown: 1
+  Cooldown: 10
   BurstDelay: 0.1
   Burst: 1
 --- !u!114 &114973647360738538

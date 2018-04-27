@@ -225,7 +225,7 @@ MonoBehaviour:
   TTL: 30
   Piercing: 1
   HitEffects:
-  - DealDamage: 50
+  - DealDamage: 500
     Heal: 0
     ApplyBuff: {fileID: 0}
     SpawnObject: {fileID: 0}

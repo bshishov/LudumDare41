@@ -16,6 +16,6 @@ MonoBehaviour:
     Obelisk for better effect
   Icon: {fileID: 21300016, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1368108587265192, guid: ea6b22ed4ae94244390a1a1ac3d8f0d2, type: 2}
-  Cost: 100
+  Cost: 80
   Cooldown: 0
   PositionInBuildingMenu: {x: 0, y: 2}

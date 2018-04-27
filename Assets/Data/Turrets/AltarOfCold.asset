@@ -15,6 +15,6 @@ MonoBehaviour:
   Description: 
   Icon: {fileID: 21300032, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1874355327373030, guid: c9590ee501fd1fd4498e0f590d13b97f, type: 2}
-  Cost: 800
+  Cost: 500
   Cooldown: 0
   PositionInBuildingMenu: {x: 0, y: 4}

@@ -1199,6 +1199,11 @@ Prefab:
       propertyPath: Resource
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 114746746211906452, guid: 930f795366d378047a251ef22059ccd3,
+        type: 2}
+      propertyPath: Cashback
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 930f795366d378047a251ef22059ccd3, type: 2}
   m_IsPrefabParent: 0
@@ -1994,7 +1999,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e73e4302b4a3673429c99678705fccd5, type: 2}
   - {fileID: 11400000, guid: a6623f2508c2b404c8ea228026f1fa66, type: 2}
   - {fileID: 11400000, guid: cb9ff809548271b4ba0955fdeef56b7b, type: 2}
-  TimeBetweenWaves: 10
+  - {fileID: 11400000, guid: 7d3e1a30052f2cb438a81b98ad246e4f, type: 2}
+  TimeBetweenWaves: 30
 --- !u!4 &989964159 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4418319054026744, guid: e776c1f9ec296c346a43c08a08990abf,

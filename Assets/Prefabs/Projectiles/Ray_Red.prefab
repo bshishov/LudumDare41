@@ -55,7 +55,7 @@ MonoBehaviour:
   TTL: 3
   Target: Enemy
   HitEffects:
-  - DealDamage: 5
+  - DealDamage: 50
     Heal: 0
     ApplyBuff: {fileID: 0}
     SpawnObject: {fileID: 1031981539866400, guid: 5c52a561a076e604b8cddea06075e418,

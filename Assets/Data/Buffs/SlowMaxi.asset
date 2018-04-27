@@ -16,8 +16,15 @@ MonoBehaviour:
   TickRate: 0.1
   DamageModifier: 0
   CooldownModifier: 0
-  SpeedModifier: -0.8
+  SpeedModifier: -0.5
   HpModifier: 0
   OnApplyEffects: []
   OnTickEffects: []
   OnRemoveEffects: []
+  AttackModifier:
+    DealDamage: 0
+    Heal: 0
+    ApplyBuff: {fileID: 0}
+    SpawnObject: {fileID: 0}
+    WorldSpace: 1
+    PlaySound: {fileID: 0}

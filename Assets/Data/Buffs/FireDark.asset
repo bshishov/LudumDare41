@@ -20,10 +20,17 @@ MonoBehaviour:
   HpModifier: 0
   OnApplyEffects: []
   OnTickEffects:
-  - DealDamage: 1
+  - DealDamage: 10
     Heal: 0
     ApplyBuff: {fileID: 0}
     SpawnObject: {fileID: 0}
     WorldSpace: 0
     PlaySound: {fileID: 0}
   OnRemoveEffects: []
+  AttackModifier:
+    DealDamage: 0
+    Heal: 0
+    ApplyBuff: {fileID: 0}
+    SpawnObject: {fileID: 0}
+    WorldSpace: 1
+    PlaySound: {fileID: 0}

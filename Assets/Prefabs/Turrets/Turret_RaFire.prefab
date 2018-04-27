@@ -215,7 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5acc8e8e438cfcc4096b32357e48c51f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Buffs: []
+  Buffs:
+  - {fileID: 11400000, guid: 4655db7670f10e9418cbff2314bb5253, type: 2}
 --- !u!114 &114106122826520562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,6 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46f87cbc6cbb16409f984d39334c58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackModifiers: []
 --- !u!114 &114234976794631900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9709332ba0eca24c8020f3ec356e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Info: {fileID: 0}
+  Info: {fileID: 11400000, guid: 9d8afba6821ed7745a2d27f401161d0f, type: 2}
   FireMode: 0
   Cooldown: 1
   BurstDelay: 0.1

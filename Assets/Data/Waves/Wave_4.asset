@@ -14,19 +14,19 @@ MonoBehaviour:
   Items:
   - EnemyPrefab: {fileID: 1001088813172558, guid: a9ba8e780cd8ce941b4f10b3935ea319,
       type: 2}
-    NumberOfThisType: 30
+    NumberOfThisType: 25
     DelayBetween: 0.1
     DelayBeforeNext: 0
     SpawnIndex: -1
   - EnemyPrefab: {fileID: 1980097644909662, guid: 72643e05c9d4dcc46bde4ea14642a24b,
       type: 2}
-    NumberOfThisType: 20
+    NumberOfThisType: 15
     DelayBetween: 0.1
     DelayBeforeNext: 20
     SpawnIndex: -1
   - EnemyPrefab: {fileID: 1187839407050040, guid: a5f35c32a1d392c45a04dd7aae31688b,
       type: 2}
-    NumberOfThisType: 20
+    NumberOfThisType: 15
     DelayBetween: 0
     DelayBeforeNext: 0
     SpawnIndex: -1
