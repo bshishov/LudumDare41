@@ -23,7 +23,7 @@ namespace Assets.Scripts
                 return;
 
             var playerPosition = _player.transform.position + TargetOffset;
-            transform.position = Vector3.SmoothDamp(transform.position, playerPosition, ref _velocity, FlyTime, 10f);
+            transform.position = Vector3.SmoothDamp(transform.position, playerPosition, ref _velocity, FlyTime, MaxSpeed);
 
             if (Vector3.Distance(playerPosition, transform.position) < PickProximity)
             {

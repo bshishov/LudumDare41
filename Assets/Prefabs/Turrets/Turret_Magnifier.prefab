@@ -347,6 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46f87cbc6cbb16409f984d39334c58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackModifiers: []
 --- !u!114 &114708148516599970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -362,7 +363,8 @@ MonoBehaviour:
   AoEType: 0
   Direction: 0
   ReferenceOffset: {x: 0, y: 1.5, z: 0}
-  TargetTags: []
+  TargetTags:
+  - Enemy
 --- !u!114 &114751723576719804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -374,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd531dbd3e7cd2449adcb43e359657a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ZoneObj: {fileID: 0}
+  ZoneObj: {fileID: 1828909133371846, guid: b33d162c17fa1234ba925d6273ab8437, type: 2}
 --- !u!114 &114801961528867482
 MonoBehaviour:
   m_ObjectHideFlags: 1
