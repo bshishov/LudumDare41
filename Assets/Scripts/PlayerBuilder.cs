@@ -47,7 +47,13 @@ namespace Assets.Scripts
             var turret = TurretInRange();
             if (turret != null)
             {
-                UITurretInfo.Instance.Show();
+                if (turret != _currentTurret)
+                {
+                    _currentTurret = turret;
+                    OnTurretInRange();
+                }
+
+                UITurretInfo.Instance.CoolDownPercentage = _currentTurret.CooldownPercentage;
             }
             else
             {
@@ -56,7 +62,6 @@ namespace Assets.Scripts
                     OnTurretOutOfRange();
                     _currentTurret = null;
                 }
-                UITurretInfo.Instance.Hide();
             }
 
             if (UIBuildingMenu.Instance.IsActive)
@@ -204,6 +209,13 @@ namespace Assets.Scripts
                 var t = _placedTurrets[coords];
                 if (t.Info != null)
                     AddSouls(Mathf.CeilToInt(t.Info.Cost * Cashback));
+
+                if (_currentTurret == t)
+                {
+                    OnTurretOutOfRange();
+                    _currentTurret = null;
+                }
+
                 Destroy(t.gameObject);
                 _placedTurrets.Remove(coords);
             }
@@ -232,12 +244,13 @@ namespace Assets.Scripts
 
         private void OnTurretInRange()
         {
-            
+            UITurretInfo.Instance.Show();
+            UITurretInfo.Instance.Target = _currentTurret.gameObject;
         }
 
         private void OnTurretOutOfRange()
         {
-
+            UITurretInfo.Instance.Hide();
         }
 
         void OnDrawGizmosSelected()

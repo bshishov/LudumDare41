@@ -24,6 +24,8 @@ namespace Assets.Scripts
         private NavMeshAgent _agent;
         private Animator _animator;
 
+        private Renderer _renderer;
+
         void Awake()
         {
             _buffable = GetComponent<Buffable>();
@@ -35,6 +37,10 @@ namespace Assets.Scripts
 
         void Start ()
         {
+            _renderer = GetComponent<Renderer>();
+            if (_renderer == null)
+                _renderer = GetComponentInChildren<Renderer>();
+
             _buffable.OnApplyEffect += ApplyEffect;
             CurrentHp = MaxHp;
         }
@@ -69,7 +75,8 @@ namespace Assets.Scripts
 
         public void TakeDamage(float amount)
         {
-            UINotifications.Instance.Show(gameObject.transform, amount.ToString(), Color.red, yOffset: 2f);
+            if(_renderer.isVisible)
+                UINotifications.Instance.Show(gameObject.transform, amount.ToString(), Color.red, yOffset: 2f);
 
             if (CurrentHp > 0)
             {
@@ -83,7 +90,8 @@ namespace Assets.Scripts
         {
             CurrentHp = Mathf.Max(CurrentHp + amount, MaxHp);
 
-            UINotifications.Instance.Show(gameObject.transform, amount.ToString(), Color.green, yOffset: 2f);
+            if (_renderer.isVisible)
+                UINotifications.Instance.Show(gameObject.transform, amount.ToString(), Color.green, yOffset: 2f);
         }
 
         public void ApplyEffect(Effect effect)

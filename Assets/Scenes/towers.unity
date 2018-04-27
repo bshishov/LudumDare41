@@ -144,8 +144,10 @@ MonoBehaviour:
   - {fileID: 771777285}
   Target: {fileID: 2032197470}
   Waves:
-  - {fileID: 11400000, guid: b2568eea5cc2a894987e4042f379b994, type: 2}
-  - {fileID: 11400000, guid: b2568eea5cc2a894987e4042f379b994, type: 2}
+  - {fileID: 11400000, guid: 932b5d9ae94e62544a0e9daf4a25a821, type: 2}
+  - {fileID: 11400000, guid: e73e4302b4a3673429c99678705fccd5, type: 2}
+  - {fileID: 11400000, guid: a6623f2508c2b404c8ea228026f1fa66, type: 2}
+  - {fileID: 11400000, guid: cb9ff809548271b4ba0955fdeef56b7b, type: 2}
   TimeBetweenWaves: 3
 --- !u!4 &21235475
 Transform:

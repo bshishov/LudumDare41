@@ -28,10 +28,5 @@ namespace Assets.Scripts.UI
             _initialSize = FillTransform.sizeDelta;
             Value = Initial;
         }
-        
-        void Update ()
-        {
-            Value = Mathf.Sin(Time.time);
-        }
     }
 }
