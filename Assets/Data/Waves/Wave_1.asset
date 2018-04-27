@@ -17,28 +17,40 @@ MonoBehaviour:
     NumberOfThisType: 1
     DelayBetween: 0
     DelayBeforeNext: 5
+    SpawnIndex: 0
   - EnemyPrefab: {fileID: 1974188809632818, guid: 84b957030435f4947814f8e19388fe9e,
       type: 2}
     NumberOfThisType: 1
     DelayBetween: 0
     DelayBeforeNext: 5
+    SpawnIndex: 0
   - EnemyPrefab: {fileID: 1974188809632818, guid: 84b957030435f4947814f8e19388fe9e,
       type: 2}
     NumberOfThisType: 2
     DelayBetween: 0.1
     DelayBeforeNext: 5
+    SpawnIndex: 0
+  - EnemyPrefab: {fileID: 1974188809632818, guid: 84b957030435f4947814f8e19388fe9e,
+      type: 2}
+    NumberOfThisType: 10
+    DelayBetween: 5
+    DelayBeforeNext: 0.1
+    SpawnIndex: 1
   - EnemyPrefab: {fileID: 1974188809632818, guid: 84b957030435f4947814f8e19388fe9e,
       type: 2}
     NumberOfThisType: 5
     DelayBetween: 0.1
     DelayBeforeNext: 5
+    SpawnIndex: -1
   - EnemyPrefab: {fileID: 1974188809632818, guid: 84b957030435f4947814f8e19388fe9e,
       type: 2}
     NumberOfThisType: 6
     DelayBetween: 0.1
     DelayBeforeNext: 7
+    SpawnIndex: -1
   - EnemyPrefab: {fileID: 1167554545061500, guid: 0408d59b11ae17b46ae6e5d9969f9b66,
       type: 2}
     NumberOfThisType: 1
     DelayBetween: 0.1
     DelayBeforeNext: 0
+    SpawnIndex: -1

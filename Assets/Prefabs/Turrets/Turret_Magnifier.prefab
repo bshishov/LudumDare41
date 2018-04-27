@@ -359,7 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a146fe6b0a17a3448a6e4e040a4d67f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 3
+  Range: 10
   AoEType: 0
   Direction: 0
   ReferenceOffset: {x: 0, y: 1.5, z: 0}
@@ -388,9 +388,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9709332ba0eca24c8020f3ec356e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Info: {fileID: 0}
+  Info: {fileID: 11400000, guid: 1c1cdf100ef818444bc58cef5752e0d8, type: 2}
   FireMode: 0
-  Cooldown: 1
+  Cooldown: 5
   BurstDelay: 0.1
   Burst: 1
 --- !u!136 &136781604654094206

@@ -673,6 +673,8 @@ MonoBehaviour:
   InitialJumpSpeed: 0.6
   JumpHoldSpeed: 0.005
   Cylinder: {fileID: 0}
+  IsGroundedDelay: 0.1
+  IsLocked: 0
 --- !u!114 &114746746211906452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -687,11 +689,12 @@ MonoBehaviour:
   ReferencePoint: {x: 0, y: 0.5, z: 0}
   TurretRadiusOffset: 1.5
   TurretHeightOffset: -2
-  Resource: 1000
-  BuildKey: 101
-  OpenBuildingMenuKey: 98
-  RotateKey: 114
-  DestroyKey: 103
+  Resource: 280
+  Cashback: 0.5
+  BuildActivateButton: Submit
+  OpenBuildingMenuButton: Fire3
+  RotateButton: Fire1
+  DestroyButton: Fire2
   ResourceText: {fileID: 0}
 --- !u!137 &137464928982397328
 SkinnedMeshRenderer:

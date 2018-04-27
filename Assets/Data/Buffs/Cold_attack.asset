@@ -9,14 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71cbf03ccee286e48a3d485a6cc5b7ba, type: 3}
-  m_Name: SlowMini
+  m_Name: Cold_attack
   m_EditorClassIdentifier: 
-  Name: Slowed
-  Duration: 5
+  Name: Cold_attack
+  Duration: 1
   TickRate: 0.1
   DamageModifier: 0
   CooldownModifier: 0
-  SpeedModifier: -0.2
+  SpeedModifier: 0
   HpModifier: 0
   OnApplyEffects: []
   OnTickEffects: []
@@ -24,7 +24,7 @@ MonoBehaviour:
   AttackModifier:
     DealDamage: 0
     Heal: 0
-    ApplyBuff: {fileID: 0}
+    ApplyBuff: {fileID: 11400000, guid: 8ea2d2e5c73d5a04ca6196dfc5863f53, type: 2}
     SpawnObject: {fileID: 0}
     WorldSpace: 1
     PlaySound: {fileID: 0}

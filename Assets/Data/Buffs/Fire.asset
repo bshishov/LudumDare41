@@ -9,17 +9,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71cbf03ccee286e48a3d485a6cc5b7ba, type: 3}
-  m_Name: SlowMini
+  m_Name: Fire
   m_EditorClassIdentifier: 
-  Name: Slowed
+  Name: Fire
   Duration: 5
-  TickRate: 0.1
+  TickRate: 1
   DamageModifier: 0
   CooldownModifier: 0
-  SpeedModifier: -0.2
+  SpeedModifier: 0
   HpModifier: 0
   OnApplyEffects: []
-  OnTickEffects: []
+  OnTickEffects:
+  - DealDamage: 5
+    Heal: 0
+    ApplyBuff: {fileID: 0}
+    SpawnObject: {fileID: 0}
+    WorldSpace: 0
+    PlaySound: {fileID: 0}
   OnRemoveEffects: []
   AttackModifier:
     DealDamage: 0

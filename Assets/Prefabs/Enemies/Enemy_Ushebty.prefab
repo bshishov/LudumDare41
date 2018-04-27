@@ -216,9 +216,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04baad3bbed4b7c41a86bf4e6de813b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseSpeed: 4
+  BaseSpeed: 5
   LadderSpeed: 10
-  MaxHp: 20
+  MaxHp: 200
   DropSouls: 1
   SoulPrefab: {fileID: 1018221541414438, guid: 41e1ff1a44cd73146b62eaa8fb25c6d3, type: 2}
 --- !u!137 &137309752122741910
