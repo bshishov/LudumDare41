@@ -32,6 +32,7 @@ namespace Assets.Scripts
         private CharacterController _characterController;
         private PlayerController _playerController;
         private readonly Dictionary<Vector2Int, Turret> _placedTurrets = new Dictionary<Vector2Int, Turret>();
+        private Turret _currentTurret;
 
         void Start ()
         {
@@ -43,6 +44,21 @@ namespace Assets.Scripts
         
         void Update ()
         {
+            var turret = TurretInRange();
+            if (turret != null)
+            {
+                UITurretInfo.Instance.Show();
+            }
+            else
+            {
+                if (_currentTurret != null)
+                {
+                    OnTurretOutOfRange();
+                    _currentTurret = null;
+                }
+                UITurretInfo.Instance.Hide();
+            }
+
             if (UIBuildingMenu.Instance.IsActive)
             {
                 if (Input.GetButtonDown(OpenBuildingMenuButton) || Input.GetButtonDown("Cancel"))
@@ -76,7 +92,6 @@ namespace Assets.Scripts
 
                 if (Input.GetButtonDown(BuildActivateButton))
                 {
-                    var turret = TurretInRange();
                     if (turret != null)
                     {
                         turret.Activate();
@@ -88,7 +103,6 @@ namespace Assets.Scripts
 
             if (Input.GetButtonDown(RotateButton))
             {
-                var turret = TurretInRange();
                 if (turret != null)
                     turret.ChangeDirection();
             }
@@ -214,6 +228,16 @@ namespace Assets.Scripts
             var turretCom = turretObj.GetComponent<Turret>();
             if (turretCom != null)
                 _placedTurrets.Add(coords, turretCom);
+        }
+
+        private void OnTurretInRange()
+        {
+            
+        }
+
+        private void OnTurretOutOfRange()
+        {
+
         }
 
         void OnDrawGizmosSelected()
