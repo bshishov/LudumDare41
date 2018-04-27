@@ -61,7 +61,7 @@ namespace Assets.Scripts
             if (IsLocked)
                 side = 0f;
             _animator.SetFloat("Speed", Mathf.Abs(side));
-            _movingVector = Camera.main.transform.right.normalized * side * Speed;
+            _movingVector = Camera.main.transform.right.normalized * side * Speed * Time.deltaTime;
         }
 
         void Move()
@@ -108,10 +108,10 @@ namespace Assets.Scripts
                 }
             }
         
-            var verticalChange = Physics.gravity.y * Time.deltaTime / 10;
+            var verticalChange = Physics.gravity.y * Time.deltaTime;
             _verticalSpeed += verticalChange;
         
-            _controller.Move(new Vector3(0, _verticalSpeed, 0)); // падаем
+            _controller.Move(new Vector3(0, _verticalSpeed * Time.deltaTime, 0)); // падаем
         }
 
         void Rotate()
