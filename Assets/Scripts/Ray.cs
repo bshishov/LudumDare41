@@ -18,6 +18,8 @@ namespace Assets.Scripts
         [SerializeField]
         public List<Effect> HitEffects;
 
+        public float DamageMultiplier;
+
         void Start()
         {
             _line = GetComponent<LineRenderer>();

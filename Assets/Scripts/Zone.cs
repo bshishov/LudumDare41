@@ -15,7 +15,8 @@ namespace Assets.Scripts
 
         [SerializeField]
         public Effect[] HitEffects;
-        
+        public float DamageMultiplier;
+
         void Start ()
         {
             Destroy(gameObject, TTL);
