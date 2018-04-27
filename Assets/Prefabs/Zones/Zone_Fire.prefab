@@ -56,7 +56,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: Enemy
-  TTL: 10
+  TTL: 1
   DestroyOnHit: 0
   HitEffects:
   - DealDamage: 10

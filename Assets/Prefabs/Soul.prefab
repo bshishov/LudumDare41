@@ -124,8 +124,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2502f1ed9a4c348aa0465938227249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FlyTime: 0.5
-  MaxSpeed: 10
+  FlyTime: 0.2
+  MaxSpeed: 20
+  PickProximity: 1
+  TargetOffset: {x: 0, y: 2, z: 0}
+  Value: 0
 --- !u!135 &135000168024589214
 SphereCollider:
   m_ObjectHideFlags: 1

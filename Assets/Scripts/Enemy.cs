@@ -71,9 +71,12 @@ namespace Assets.Scripts
         {
             UINotifications.Instance.Show(gameObject.transform, amount.ToString(), Color.red, yOffset: 2f);
 
-            CurrentHp -= amount;
-            if (CurrentHp < 1f)
-                Die();
+            if (CurrentHp > 0)
+            {
+                CurrentHp -= amount;
+                if (CurrentHp < 1f)
+                    Die();
+            }
         }
 
         public void Heal(float amount)
@@ -99,7 +102,7 @@ namespace Assets.Scripts
                 if (effect.WorldSpace)
                     GameObject.Instantiate(effect.SpawnObject, transform.position, Quaternion.identity);
                 else
-                    GameObject.Instantiate(effect.SpawnObject, transform);
+                    GameObject.Instantiate(effect.SpawnObject, transform, false);
             }
         }
 
