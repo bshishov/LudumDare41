@@ -40,6 +40,8 @@ namespace Assets.Scripts.Turrets
 
                 if(_buffable.AttackModifiers.Count > 0)
                     ray.HitEffects.AddRange(_buffable.AttackModifiers);
+
+                ray.DamageMultiplier = _buffable.DamageMultiplier;
             }
         }
 

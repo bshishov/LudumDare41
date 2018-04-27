@@ -45,6 +45,11 @@ namespace Assets.Scripts
             CurrentHp = MaxHp;
         }
 
+        private void ApplyEffect(Effect obj)
+        {
+            ApplyEffect(obj, 1f);
+        }
+
         public void SetTarget(Vector3 target)
         {
             _target = target;
@@ -94,10 +99,10 @@ namespace Assets.Scripts
                 UINotifications.Instance.Show(gameObject.transform, amount.ToString(), Color.green, yOffset: 2f);
         }
 
-        public void ApplyEffect(Effect effect)
+        public void ApplyEffect(Effect effect, float damageMultiplier = 1f)
         {
             if (effect.DealDamage > 0)
-                TakeDamage(effect.DealDamage);
+                TakeDamage(effect.DealDamage * damageMultiplier);
 
             if (effect.Heal > 0)
                 Heal(effect.Heal);
