@@ -317,6 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46f87cbc6cbb16409f984d39334c58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackModifiers: []
 --- !u!114 &114500062834959408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -340,9 +341,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9709332ba0eca24c8020f3ec356e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Info: {fileID: 0}
+  Info: {fileID: 11400000, guid: 09d598e1e830da04482c1ae58bd79f8b, type: 2}
   FireMode: 0
-  Cooldown: 0.5
+  Cooldown: 0.4
   BurstDelay: 0.1
   Burst: 1
 --- !u!136 &136590955149579098

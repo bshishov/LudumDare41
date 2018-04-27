@@ -55,13 +55,14 @@ MonoBehaviour:
   TTL: 0.5
   Target: Enemy
   HitEffects:
-  - DealDamage: 5
+  - DealDamage: 4
     Heal: 0
     ApplyBuff: {fileID: 0}
     SpawnObject: {fileID: 1031981539866400, guid: 5c52a561a076e604b8cddea06075e418,
       type: 2}
     WorldSpace: 1
     PlaySound: {fileID: 0}
+  DamageMultiplier: 0
 --- !u!120 &120012140174964534
 LineRenderer:
   m_ObjectHideFlags: 1

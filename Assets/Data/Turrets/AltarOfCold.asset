@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: AltarOfCold
   m_EditorClassIdentifier: 
   Name: Altar of Cold
-  Description: 
+  Description: Attack of nearby towers will slow down enemies. Reduces enemy's speed
+    by 20%
   Icon: {fileID: 21300032, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1874355327373030, guid: c9590ee501fd1fd4498e0f590d13b97f, type: 2}
   Cost: 500

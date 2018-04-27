@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Cannon
   m_EditorClassIdentifier: 
   Name: Cannon
-  Description: 
+  Description: Shoots a stone that deals 10 damage
   Icon: {fileID: 21300004, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1877965952825448, guid: 58e01553959e67a4d9733d4bacf009a0, type: 2}
   Cost: 25

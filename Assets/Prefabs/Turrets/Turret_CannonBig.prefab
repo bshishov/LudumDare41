@@ -318,7 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Info: {fileID: 11400000, guid: 05e5defd26a637c41a67a9887fd839fc, type: 2}
   FireMode: 0
-  Cooldown: 5
+  Cooldown: 3
   BurstDelay: 0.1
   Burst: 1
 --- !u!114 &114739007930556762

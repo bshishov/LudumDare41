@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: ScrollGun
   m_EditorClassIdentifier: 
   Name: Scroll Gun
-  Description: 
+  Description: Shoots ancient scrolls at enemies. Each scroll deals 2 damage
   Icon: {fileID: 21300010, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1314494232712274, guid: 11e19437ec33b3049a063aa2591f25d9, type: 2}
   Cost: 21

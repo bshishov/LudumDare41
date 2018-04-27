@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: LongRangeCannon
   m_EditorClassIdentifier: 
   Name: Long Range Cannon
-  Description: 
+  Description: Long range tower that deals 80 damage
   Icon: {fileID: 21300006, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1760515729526874, guid: 07572ce8fcb4c684a825a2329a3dbf0c, type: 2}
   Cost: 100

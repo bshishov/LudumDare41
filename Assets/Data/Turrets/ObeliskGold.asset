@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Name: ObeliskGold
   m_EditorClassIdentifier: 
   Name: Gold Obelisk
-  Description: Shoots a laser that deals 5 damage. Can be connected with another Gold
-    Obelisk for better effect
+  Description: Shoots a laser that deals 4 damage
   Icon: {fileID: 21300016, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1368108587265192, guid: ea6b22ed4ae94244390a1a1ac3d8f0d2, type: 2}
   Cost: 80

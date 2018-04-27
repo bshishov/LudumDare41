@@ -328,9 +328,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9709332ba0eca24c8020f3ec356e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Info: {fileID: 11400000, guid: 927b27d1a7226784da37d398f009c061, type: 2}
+  Info: {fileID: 11400000, guid: 76f139b0890289c449b4c5cb5dd47619, type: 2}
   FireMode: 0
-  Cooldown: 10
+  Cooldown: 6
   BurstDelay: 0.1
   Burst: 1
 --- !u!136 &136340294876640000
