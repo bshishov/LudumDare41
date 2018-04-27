@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 86cb65342c6c26f42ab3b330b04a49f2
-timeCreated: 1524794566
+guid: f9b191b45ba5d2a49abd26dc68229292
+timeCreated: 1524799880
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -11,7 +11,12 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: mesh_Palm_01
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: b526efe7317ccfd4aab8180a47394eef, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -66,7 +71,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
