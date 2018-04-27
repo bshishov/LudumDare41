@@ -12,9 +12,21 @@ MonoBehaviour:
   m_Name: Wave_6
   m_EditorClassIdentifier: 
   Items:
+  - EnemyPrefab: {fileID: 1522463775800690, guid: 64cb3727daf86c7459fd157e9069bc58,
+      type: 2}
+    NumberOfThisType: 10
+    DelayBetween: 0.1
+    DelayBeforeNext: 10
+    SpawnIndex: 1
   - EnemyPrefab: {fileID: 1997046493772292, guid: d9581407757f8094a807cde91e101d0c,
       type: 2}
     NumberOfThisType: 1
     DelayBetween: 0
+    DelayBeforeNext: 0
+    SpawnIndex: 1
+  - EnemyPrefab: {fileID: 1045777329917490, guid: abfc941aa006303449c7777a96df84bb,
+      type: 2}
+    NumberOfThisType: 10
+    DelayBetween: 0.1
     DelayBeforeNext: 0
     SpawnIndex: 0

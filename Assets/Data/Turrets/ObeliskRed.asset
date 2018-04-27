@@ -15,6 +15,6 @@ MonoBehaviour:
   Description: Shoots a laser that deals 15 damage
   Icon: {fileID: 21300018, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1241686514451404, guid: 5698483b80b77f64abc3c8cedace9ba9, type: 2}
-  Cost: 1500
+  Cost: 1000
   Cooldown: 0
   PositionInBuildingMenu: {x: 1, y: 2}

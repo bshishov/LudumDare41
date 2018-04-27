@@ -305,7 +305,7 @@ MonoBehaviour:
   BaseSpeed: 1
   LadderSpeed: 5
   MaxHp: 750
-  DropSouls: 100
+  DropSouls: 150
   SoulPrefab: {fileID: 1018221541414438, guid: 41e1ff1a44cd73146b62eaa8fb25c6d3, type: 2}
 --- !u!137 &137858163630423304
 SkinnedMeshRenderer:
