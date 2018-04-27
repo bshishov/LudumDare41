@@ -7,7 +7,7 @@
 	}
 	SubShader
 	{
-		Tags{ "Queue" = "Transparent+1" "IgnoreProjector" = "True" "RenderType" = "TransparentCutout" }
+		Tags{ "Queue" = "Transparent+1" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
 		LOD 200
 		
 		
