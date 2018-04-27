@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: SethBoiler
   m_EditorClassIdentifier: 
   Name: Seth's Boiler
-  Description: 
+  Description: Shoots the tormented souls that go all the way around the tower to
+    get back into the Boiler. Deals 500 damage
   Icon: {fileID: 21300028, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1560827974013674, guid: 0d9565bcba16e8740aa411b8137aff72, type: 2}
   Cost: 1000

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: AltarOfWind
   m_EditorClassIdentifier: 
   Name: Altar of Wind
-  Description: 
+  Description: Increases the attack speed of nearby towers by 50%
   Icon: {fileID: 21300034, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1336096878186484, guid: 1275ee6b792c4d94fa55852993c6b3c6, type: 2}
   Cost: 500

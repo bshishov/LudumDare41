@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: TimeStop
   m_EditorClassIdentifier: 
   Name: Time Stop
-  Description: 
+  Description: Reduces enemy's speed by 50%
   Icon: {fileID: 21300012, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1107725475652278, guid: 32307bbcff3383847a72c9fc9ccf9e65, type: 2}
   Cost: 1500

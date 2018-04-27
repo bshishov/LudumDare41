@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: RaWind
   m_EditorClassIdentifier: 
   Name: Fertility
-  Description: 
+  Description: Increases the damage by 50% for friendly towers
   Icon: {fileID: 21300040, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1250032041239508, guid: b62cce6ce06118b4d848f9e0e2611a32, type: 2}
   Cost: 1000
