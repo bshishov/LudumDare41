@@ -30,7 +30,7 @@ namespace Assets.Scripts.UI
 
                     if (EnemiesCount != null)
                         EnemiesCount.text = string.Format("{0}/{1}", _waveManager.EnemiesOut,
-                            _waveManager.CurrentWave.TotalNumberOfEnemies());
+                            _waveManager.EnemiesInThisWave);
 
                     ProgressBar.sizeDelta =
                         new Vector2(_progressBarSize.x * _waveManager.Percentage, _progressBarSize.y);

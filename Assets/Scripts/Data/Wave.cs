@@ -10,9 +10,9 @@ namespace Assets.Scripts.Data
     {
         public List<SpawnEntry> Items;
 
-        public int TotalNumberOfEnemies()
+        public int TotalNumberOfEnemies(int spawnPoints)
         {
-            return Items.Sum(spawnEntry => spawnEntry.NumberOfThisType);
+            return Items.Sum(spawnEntry => spawnEntry.GetTotal(spawnPoints));
         }
     }
 }

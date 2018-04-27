@@ -52,8 +52,11 @@ namespace Assets.Scripts
                     _currentTurret = turret;
                     OnTurretInRange();
                 }
-
+                
                 UITurretInfo.Instance.CoolDownPercentage = _currentTurret.CooldownPercentage;
+                UITurretInfo.Instance.ArrowDirection = _currentTurret.Direction;
+                UITurretInfo.Instance.ShowActivateText = _currentTurret.FireMode == Turret.ActivationType.Manual &&
+                                                         _currentTurret.CooldownPercentage < 0.01f;
             }
             else
             {

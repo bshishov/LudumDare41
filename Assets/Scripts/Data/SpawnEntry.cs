@@ -11,5 +11,12 @@ namespace Assets.Scripts.Data
         public float DelayBetween = 0.1f;
         public float DelayBeforeNext = 0.5f;
         public int SpawnIndex = 0;
+
+        public int GetTotal(int spawnPoints)
+        {
+            if (SpawnIndex < 0)
+                return NumberOfThisType * spawnPoints;
+            return NumberOfThisType;
+        }
     }
 }

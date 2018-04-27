@@ -19,6 +19,7 @@ namespace Assets.Scripts
         public bool WaveInProgress { get; private set; }
         public int WaveNumber { get { return _currentWaveIndex + 1; } }
         public int EnemiesOut { get; private set; }
+        public int EnemiesInThisWave { get; private set; }
         public float TimeToNextWave { get; private set; }
 
         public float Percentage
@@ -26,7 +27,7 @@ namespace Assets.Scripts
             get
             {
                 if(CurrentWave != null)
-                    return Mathf.Clamp01((float) EnemiesOut / CurrentWave.TotalNumberOfEnemies());
+                    return Mathf.Clamp01((float) EnemiesOut / EnemiesInThisWave);
                 return 0f;
             }
         }
@@ -68,6 +69,7 @@ namespace Assets.Scripts
                 
             CurrentWave = Waves[_currentWaveIndex];
             EnemiesOut = 0;
+            EnemiesInThisWave = CurrentWave.TotalNumberOfEnemies(SpawnPoints.Count);
             StartCoroutine(DoWave(CurrentWave));
         }
 
@@ -97,6 +99,7 @@ namespace Assets.Scripts
         {
             Debug.LogFormat("Wave {0}/{1} started!", WaveNumber, Waves.Count);
             WaveInProgress = true;
+            
             foreach (var spawnEntry in wave.Items)
             {
                 if(spawnEntry.EnemyPrefab == null || spawnEntry.NumberOfThisType == 0)
@@ -113,6 +116,7 @@ namespace Assets.Scripts
             WaveInProgress = false;
             Debug.LogFormat("Wave {0}/{1} ended!", WaveNumber, Waves.Count);
             TimeToNextWave = this.TimeBetweenWaves;
+            EnemiesInThisWave = 0;
         }
     }
 }
