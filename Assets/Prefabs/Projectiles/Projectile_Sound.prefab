@@ -71,8 +71,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: Enemy
   TTL: 10
-  Piercing: 0
-  HitEffects: []
+  Piercing: 1
+  HitEffects:
+  - DealDamage: 7
+    Heal: 0
+    ApplyBuff: {fileID: 0}
+    SpawnObject: {fileID: 0}
+    WorldSpace: 0
+    PlaySound: {fileID: 0}
 --- !u!135 &135567924296732270
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -80,7 +86,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1511262627962646}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.7100458
