@@ -114,14 +114,17 @@ namespace Assets.Scripts
             }
         }
 
-        public void Die()
+        public void Die(bool dropsouls = true)
         {
-            if (SoulPrefab != null)
+            if (dropsouls)
             {
-                var soulObj = GameObject.Instantiate(SoulPrefab, transform.position, Quaternion.identity);
-                var soul = soulObj.GetComponent<Soul>();
-                if(soul != null)
-                    soul.Value = DropSouls;
+                if (SoulPrefab != null)
+                {
+                    var soulObj = GameObject.Instantiate(SoulPrefab, transform.position, Quaternion.identity);
+                    var soul = soulObj.GetComponent<Soul>();
+                    if (soul != null)
+                        soul.Value = DropSouls;
+                }
             }
             Destroy(gameObject);
         }
