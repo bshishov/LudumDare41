@@ -23,8 +23,7 @@
 
 			CGPROGRAM
 			#pragma vertex vert
-			#pragma fragment frag			
-			//#pragma multi_compile_fog
+			#pragma fragment frag						
 
 			#include "UnityCG.cginc"
 
@@ -37,8 +36,7 @@
 
 			struct v2f
 			{
-				float2 uv : TEXCOORD0;
-				UNITY_FOG_COORDS(1)
+				float2 uv : TEXCOORD0;				
 				float4 vertex : SV_POSITION;
 				fixed4 color : COLOR;
 			};
@@ -56,8 +54,7 @@
 				o.vertex.y += y;
 
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-				o.color = v.color;
-				UNITY_TRANSFER_FOG(o,o.vertex);
+				o.color = v.color;				
 				return o;
 			}
 
@@ -70,9 +67,7 @@
 				col.rgb = fixed3(1, 1, 1) * (1 - l) + _TintColor.xyz * l;
 				//col.rgb = i.color.xyz;
 				col.rgb *= i.color.xyz;
-				col.a = a * i.color.a;
-
-				UNITY_APPLY_FOG(i.fogCoord, col);
+				col.a = 2 * a * i.color.a * a;				
 				return col;
 			}
 			ENDCG

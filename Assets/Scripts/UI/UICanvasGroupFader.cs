@@ -48,7 +48,7 @@ namespace Assets.Scripts.UI
         {
             if (State == FaderState.FadingIn)
             {
-                _transition += Time.deltaTime;
+                _transition += Time.fixedDeltaTime;
                 _canvasGroup.alpha = Mathf.Clamp01(_transition / FadeTime);
 
                 if (_transition > FadeTime)
@@ -63,7 +63,7 @@ namespace Assets.Scripts.UI
 
             if (State == FaderState.FadingOut)
             {
-                _transition += Time.deltaTime;
+                _transition += Time.fixedDeltaTime;
                 _canvasGroup.alpha = 1 - Mathf.Clamp01(_transition / FadeTime);
 
                 if (_transition > FadeTime)

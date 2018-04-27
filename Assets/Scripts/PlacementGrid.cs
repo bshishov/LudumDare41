@@ -97,5 +97,16 @@ namespace Assets.Scripts
         {
             return Vector3.Distance(GridToWorld(new Vector2(r + 0.5f, 0)), GridToWorld(Vector2.zero));
         }
+
+        public float VectorToRadius(Vector3 p)
+        {
+            return Vector2.Distance(p, new Vector3(transform.position.x, p.y, transform.position.z));
+        }
+
+        public Vector3 ClosestOnGrid(Vector3 p)
+        {
+            var center = new Vector3(transform.position.x, p.y, transform.position.z);
+            return (p - center).normalized * Vector3.Distance(p, center);
+        }
     }
 }

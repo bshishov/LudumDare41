@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.UI;
+﻿using System;
+using Assets.Scripts.UI;
 using Assets.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,7 +32,13 @@ namespace Assets.Scripts
         {
             if (other.CompareTag(Tags.Enemy))
             {
-                Current = Mathf.Min(Current + 1, Pool);
+                Current += 1;
+                if (Current > Pool)
+                {
+                    UIGameOver.Instance.Show();
+                    Current = Pool;
+                }
+
                 var enemy = other.gameObject.GetComponent<Enemy>();
                 if (enemy != null)
                 {
