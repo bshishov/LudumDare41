@@ -73,12 +73,13 @@ MonoBehaviour:
   TTL: 10
   Piercing: 1
   HitEffects:
-  - DealDamage: 100
+  - DealDamage: 80
     Heal: 0
     ApplyBuff: {fileID: 0}
     SpawnObject: {fileID: 0}
     WorldSpace: 0
     PlaySound: {fileID: 0}
+  DamageMultiplier: 0
 --- !u!135 &135567924296732270
 SphereCollider:
   m_ObjectHideFlags: 1
