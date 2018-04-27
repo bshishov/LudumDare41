@@ -18,8 +18,7 @@ namespace Assets.Scripts
         public int DropSouls = 1;
         public GameObject SoulPrefab;
         public float CurrentHp { get; private set; }
-
-        private Vector3 _target;
+        
         private Buffable _buffable;
         private NavMeshAgent _agent;
         private Animator _animator;
@@ -52,7 +51,6 @@ namespace Assets.Scripts
 
         public void SetTarget(Vector3 target)
         {
-            _target = target;
             _agent.SetDestination(target);
         }
 

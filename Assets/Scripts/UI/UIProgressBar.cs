@@ -23,7 +23,7 @@ namespace Assets.Scripts.UI
         private float _value;
         private Vector2 _initialSize;
 
-        void Start ()
+        void Awake()
         {
             _initialSize = FillTransform.sizeDelta;
             Value = Initial;
