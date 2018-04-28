@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: AltarOfFire
   m_EditorClassIdentifier: 
   Name: Altar of Fire
-  Description: Increases the tower damage by 20%
+  Description: Increases the tower damage by 50%
   Icon: {fileID: 21300030, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1695546194827576, guid: bad7b3f41c72aab48997fe2acaf4c215, type: 2}
   Cost: 500

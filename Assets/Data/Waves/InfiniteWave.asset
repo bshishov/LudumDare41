@@ -15,10 +15,90 @@ MonoBehaviour:
   - Items:
     - EnemyPrefab: {fileID: 1974188809632818, guid: 84b957030435f4947814f8e19388fe9e,
         type: 2}
-      NumberOfThisType: 10
+      NumberOfThisType: 20
       DelayBetween: 0.1
       DelayBeforeNext: 0.1
       SpawnIndex: -1
+    DelayBeforeNextPack: 10
+    Difficulty: 0
+    MaxNumber: 200
+  - Items:
+    - EnemyPrefab: {fileID: 1167554545061500, guid: 0408d59b11ae17b46ae6e5d9969f9b66,
+        type: 2}
+      NumberOfThisType: 10
+      DelayBetween: 0
+      DelayBeforeNext: 0
+      SpawnIndex: 0
+    DelayBeforeNextPack: 10
+    Difficulty: 0
+    MaxNumber: 100
+  - Items:
+    - EnemyPrefab: {fileID: 1335200119091060, guid: b12f377f690e8464991304da6055ba9b,
+        type: 2}
+      NumberOfThisType: 6
+      DelayBetween: 0
+      DelayBeforeNext: 0
+      SpawnIndex: 0
+    DelayBeforeNextPack: 10
+    Difficulty: 0
+    MaxNumber: 100
+  - Items:
+    - EnemyPrefab: {fileID: 1001088813172558, guid: a9ba8e780cd8ce941b4f10b3935ea319,
+        type: 2}
+      NumberOfThisType: 4
+      DelayBetween: 0
+      DelayBeforeNext: 0
+      SpawnIndex: 0
+    DelayBeforeNextPack: 10
+    Difficulty: 0
+    MaxNumber: 100
+  - Items:
+    - EnemyPrefab: {fileID: 1980097644909662, guid: 72643e05c9d4dcc46bde4ea14642a24b,
+        type: 2}
+      NumberOfThisType: 4
+      DelayBetween: 0
+      DelayBeforeNext: 0
+      SpawnIndex: 0
+    DelayBeforeNextPack: 10
+    Difficulty: 0
+    MaxNumber: 100
+  - Items:
+    - EnemyPrefab: {fileID: 1187839407050040, guid: a5f35c32a1d392c45a04dd7aae31688b,
+        type: 2}
+      NumberOfThisType: 3
+      DelayBetween: 0
+      DelayBeforeNext: 0
+      SpawnIndex: 0
+    DelayBeforeNextPack: 10
+    Difficulty: 0
+    MaxNumber: 100
+  - Items:
+    - EnemyPrefab: {fileID: 1045777329917490, guid: abfc941aa006303449c7777a96df84bb,
+        type: 2}
+      NumberOfThisType: 4
+      DelayBetween: 0
+      DelayBeforeNext: 0
+      SpawnIndex: 0
     DelayBeforeNextPack: 0
+    Difficulty: 0
+    MaxNumber: 100
+  - Items:
+    - EnemyPrefab: {fileID: 1522463775800690, guid: 64cb3727daf86c7459fd157e9069bc58,
+        type: 2}
+      NumberOfThisType: 2
+      DelayBetween: 0
+      DelayBeforeNext: 0
+      SpawnIndex: 0
+    DelayBeforeNextPack: 20
+    Difficulty: 0
+    MaxNumber: 100
+  - Items:
+    - EnemyPrefab: {fileID: 1997046493772292, guid: d9581407757f8094a807cde91e101d0c,
+        type: 2}
+      NumberOfThisType: 1
+      DelayBetween: 0
+      DelayBeforeNext: 0
+      SpawnIndex: 0
+    DelayBeforeNextPack: 20
     Difficulty: 0
     MaxNumber: 100
