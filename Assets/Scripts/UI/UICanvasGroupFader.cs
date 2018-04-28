@@ -79,7 +79,7 @@ namespace Assets.Scripts.UI
 
         public void FadeIn()
         {
-            if (State == FaderState.FadedOut)
+            if (State == FaderState.FadedOut || State == FaderState.FadingOut)
             {
                 _transition = 0;
                 State = FaderState.FadingIn;
@@ -90,7 +90,7 @@ namespace Assets.Scripts.UI
 
         public void FadeOut()
         {
-            if (State == FaderState.FadedIn)
+            if (State == FaderState.FadedIn || State == FaderState.FadingIn)
             {
                 _transition = 0;
                 State = FaderState.FadingOut;

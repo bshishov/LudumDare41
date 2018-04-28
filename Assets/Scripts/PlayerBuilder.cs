@@ -218,11 +218,11 @@ namespace Assets.Scripts
                 var t = _placedTurrets[coords];
                 if (t.Info != null)
                     AddSouls(Mathf.CeilToInt(t.Info.Cost * Cashback));
-
+                
                 if (_currentTurret == t)
                 {
-                    OnTurretOutOfRange();
                     _currentTurret = null;
+                    OnTurretOutOfRange();
                 }
 
                 Destroy(t.gameObject);
