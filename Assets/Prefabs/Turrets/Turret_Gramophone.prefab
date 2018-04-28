@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1571110524126784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 60, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4786132155919554}
@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34515784bba3b914fafe763bdd995f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SourcePoint: {x: 0, y: 2.89, z: 1.15}
   Projectile: {fileID: 1511262627962646, guid: 50361d2c51e0a8e458c0950a8a9a14c4, type: 2}
 --- !u!114 &114534685593857190
 MonoBehaviour:
@@ -230,7 +231,7 @@ MonoBehaviour:
   Range: 40
   AoEType: 1
   Direction: 1
-  ReferenceOffset: {x: 0, y: 0, z: 0}
+  ReferenceOffset: {x: 0, y: 1.5, z: 0}
   TargetTags:
   - Enemy
 --- !u!114 &114571892714585612

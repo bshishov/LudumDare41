@@ -6,7 +6,7 @@ namespace Assets.Scripts
     public class PathFollow : MonoBehaviour
     {
         public float Speed = 1f;
-        public List<Vector3> Path;
+        public Vector3[] Path;
         public bool DestroyAtTheEnd = true;
 
         private int _aIndex = 0;
@@ -14,10 +14,10 @@ namespace Assets.Scripts
         
         void Update ()
         {
-            if(Path == null || Path.Count < 2)
+            if(Path == null || Path.Length < 2)
                 return;
 
-            if (_aIndex == Path.Count - 1)
+            if (_aIndex == Path.Length - 1)
             {
                 if(DestroyAtTheEnd)
                     Destroy(gameObject);
@@ -39,9 +39,9 @@ namespace Assets.Scripts
             }
         }
 
-        public void Go(List<Vector3> path)
+        public void Go(Vector3[] path)
         {
-            if (path == null || path.Count < 2)
+            if (path == null || path.Length < 2)
             {
                 Debug.LogWarning("Incorrect path for path follow");
                 return;

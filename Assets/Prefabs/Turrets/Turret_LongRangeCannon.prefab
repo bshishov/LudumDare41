@@ -287,6 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34515784bba3b914fafe763bdd995f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SourcePoint: {x: 0, y: 2.57, z: 1.36}
   Projectile: {fileID: 1212453207056402, guid: 27e706785b347f949bc1a8b37f356059, type: 2}
 --- !u!114 &114160544298638068
 MonoBehaviour:

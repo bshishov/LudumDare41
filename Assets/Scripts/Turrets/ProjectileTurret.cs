@@ -6,6 +6,7 @@ namespace Assets.Scripts.Turrets
     [RequireComponent(typeof(Aoe))]
     public class ProjectileTurret : MonoBehaviour
     {
+        public Vector3 SourcePoint;
         public GameObject Projectile;
 
         private Turret _turret;
@@ -32,8 +33,11 @@ namespace Assets.Scripts.Turrets
             var pathFollow = projectileObj.GetComponent<PathFollow>();
             if (pathFollow != null)
             {
+                var path = _aoe.ActivePath.ToArray();
+                path[0] = transform.TransformPoint(SourcePoint);
+
                 pathFollow.Speed *= _buffable.SpeedMultiplier;
-                pathFollow.Go(_aoe.ActivePath);
+                pathFollow.Go(path);
             }
 
             var projectile = projectileObj.GetComponent<Projectile>();
@@ -44,6 +48,11 @@ namespace Assets.Scripts.Turrets
 
                 projectile.DamageMultiplier = _buffable.DamageMultiplier;
             }
+        }
+
+        void OnDrawGizmosSelected()
+        {
+            Gizmos.DrawSphere(transform.TransformPoint(SourcePoint), 0.2f);
         }
     }
 }

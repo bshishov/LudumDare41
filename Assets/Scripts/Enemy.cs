@@ -59,7 +59,8 @@ namespace Assets.Scripts
             if(_agent == null)
                 return;
 
-            _animator.SetFloat("Speed", _buffable.SpeedMultiplier);
+            if (_animator != null)
+                _animator.SetFloat("Speed", _buffable.SpeedMultiplier);
             if (_agent.isOnOffMeshLink)
             {
                 _agent.speed = LadderSpeed * _buffable.SpeedMultiplier;

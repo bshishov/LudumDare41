@@ -2624,7 +2624,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4594509003962440, guid: 3b01d236bd2a9d1438ccdf5dab76e947, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114451424740816174, guid: 3b01d236bd2a9d1438ccdf5dab76e947,
         type: 2}
@@ -3453,80 +3453,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224871061389975176, guid: 1152e19e2b8abe34eb366d4c649f57da,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -100
-      objectReference: {fileID: 0}
-    - target: {fileID: 224871061389975176, guid: 1152e19e2b8abe34eb366d4c649f57da,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 224708573921912582, guid: 1152e19e2b8abe34eb366d4c649f57da,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -50
-      objectReference: {fileID: 0}
-    - target: {fileID: 224708573921912582, guid: 1152e19e2b8abe34eb366d4c649f57da,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 224656112367348050, guid: 1152e19e2b8abe34eb366d4c649f57da,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -100
-      objectReference: {fileID: 0}
-    - target: {fileID: 224656112367348050, guid: 1152e19e2b8abe34eb366d4c649f57da,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 224937967874541386, guid: 1152e19e2b8abe34eb366d4c649f57da,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -50
-      objectReference: {fileID: 0}
-    - target: {fileID: 224937967874541386, guid: 1152e19e2b8abe34eb366d4c649f57da,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 224752588639750012, guid: 1152e19e2b8abe34eb366d4c649f57da,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -50
-      objectReference: {fileID: 0}
-    - target: {fileID: 224752588639750012, guid: 1152e19e2b8abe34eb366d4c649f57da,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 224479288893617726, guid: 1152e19e2b8abe34eb366d4c649f57da,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 211
-      objectReference: {fileID: 0}
-    - target: {fileID: 224479288893617726, guid: 1152e19e2b8abe34eb366d4c649f57da,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -323.1
-      objectReference: {fileID: 0}
     - target: {fileID: 224677172394231482, guid: 1152e19e2b8abe34eb366d4c649f57da,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -91.79999
-      objectReference: {fileID: 0}
-    - target: {fileID: 224677172394231482, guid: 1152e19e2b8abe34eb366d4c649f57da,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -81.6001
-      objectReference: {fileID: 0}
-    - target: {fileID: 114922501806434714, guid: 1152e19e2b8abe34eb366d4c649f57da,
-        type: 2}
-      propertyPath: Initial
-      value: 0.5
+      value: -112.3999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1152e19e2b8abe34eb366d4c649f57da, type: 2}
@@ -5021,6 +4951,22 @@ Transform:
   m_PrefabParentObject: {fileID: 4082826706260222, guid: 930f795366d378047a251ef22059ccd3,
     type: 2}
   m_PrefabInternal: {fileID: 574147341}
+--- !u!114 &1951086806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1951086799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce3337c57b086b34ea30d1ac0468602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AddSoulsKey: 108
+  SpawnDummyKey: 93
+  RemoveDummyKey: 91
+  DummyPrefab: {fileID: 1076902683731900, guid: d66e6f553a37f704e8cd5b83d157d27c,
+    type: 2}
 --- !u!1001 &1955346939
 Prefab:
   m_ObjectHideFlags: 0

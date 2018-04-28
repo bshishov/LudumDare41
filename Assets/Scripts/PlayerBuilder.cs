@@ -157,16 +157,22 @@ namespace Assets.Scripts
                 return;
             }
 
-            Resource -= activeSelection.Cost;
-            UpdateResourceUI();
-            _animator.SetTrigger("Cast");
-            PlaceTurret(activeSelection);
-            UIBuildingMenu.Instance.Hide();
-            _playerController.IsLocked = false;
+            if (PlaceTurret(activeSelection))
+            {
+                UIBuildingMenu.Instance.Hide();
+                _playerController.IsLocked = false;
+
+                Resource -= activeSelection.Cost;
+                UpdateResourceUI();
+                _animator.SetTrigger("Cast");
+            }
         }
 
         private bool CanPlace()
         {
+            if (!_characterController.isGrounded)
+                return false;
+
             var c1 = PlacementGrid.Instance.WorldToCoords(transform.TransformPoint(ReferencePoint));
 
             // Is there is a turret already
@@ -224,15 +230,12 @@ namespace Assets.Scripts
             }
         }
 
-        private void PlaceTurret(TurretInfo turret)
+        private bool PlaceTurret(TurretInfo turret)
         {
-            if(!_characterController.isGrounded)
-                return;
-
             if (turret.Prefab == null)
             {
                 Debug.LogWarning("No prefab for turret");
-                return;
+                return false;
             }
 
             var coords = PlacementGrid.Instance.WorldToCoords(transform.TransformPoint(ReferencePoint));
@@ -242,7 +245,12 @@ namespace Assets.Scripts
             var turretObj = GameObject.Instantiate(turret.Prefab, placementPosition, PlacementGrid.Instance.RotationAlongTangent(placementPosition));
             var turretCom = turretObj.GetComponent<Turret>();
             if (turretCom != null)
+            {
                 _placedTurrets.Add(coords, turretCom);
+                return true;
+            }
+
+            return false;
         }
 
         private void OnTurretInRange()

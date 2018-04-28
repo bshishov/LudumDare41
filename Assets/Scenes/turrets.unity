@@ -1523,26 +1523,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 30
       objectReference: {fileID: 0}
-    - target: {fileID: 198070470906812774, guid: 0d9565bcba16e8740aa411b8137aff72,
-        type: 2}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.018977076
-      objectReference: {fileID: 0}
-    - target: {fileID: 198070470906812774, guid: 0d9565bcba16e8740aa411b8137aff72,
-        type: 2}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.28676468
-      objectReference: {fileID: 0}
-    - target: {fileID: 198070470906812774, guid: 0d9565bcba16e8740aa411b8137aff72,
-        type: 2}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.0762282
-      objectReference: {fileID: 0}
-    - target: {fileID: 198070470906812774, guid: 0d9565bcba16e8740aa411b8137aff72,
-        type: 2}
-      propertyPath: randomSeed
-      value: 1813146932
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d9565bcba16e8740aa411b8137aff72, type: 2}
   m_IsPrefabParent: 0
