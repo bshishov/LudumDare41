@@ -451,6 +451,10 @@ MonoBehaviour:
   MaxHp: 30
   DropSouls: 30
   SoulPrefab: {fileID: 1018221541414438, guid: 41e1ff1a44cd73146b62eaa8fb25c6d3, type: 2}
+  TakeDamageSound:
+    Clip: {fileID: 8300000, guid: f8f1a41f035bfad42b167585ccb36eed, type: 3}
+    VolumeModifier: 0.2
+    RandomizePitch: 1
 --- !u!137 &137366394864673824
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -251,6 +251,10 @@ MonoBehaviour:
   Cooldown: 5
   BurstDelay: 0.1
   Burst: 1
+  FireSound:
+    Clip: {fileID: 8300000, guid: bd43443bca13f954389ab1dd2a1ec118, type: 3}
+    VolumeModifier: 0.939
+    RandomizePitch: 0
 --- !u!114 &114329113420054002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -274,6 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46f87cbc6cbb16409f984d39334c58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackModifiers: []
 --- !u!114 &114810317399658268
 MonoBehaviour:
   m_ObjectHideFlags: 1

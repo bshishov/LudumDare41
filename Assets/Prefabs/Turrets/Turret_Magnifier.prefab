@@ -393,6 +393,10 @@ MonoBehaviour:
   Cooldown: 5
   BurstDelay: 0.1
   Burst: 1
+  FireSound:
+    Clip: {fileID: 8300000, guid: faf776544a15cbd42a873de9eac9af86, type: 3}
+    VolumeModifier: 0.2
+    RandomizePitch: 0
 --- !u!136 &136781604654094206
 CapsuleCollider:
   m_ObjectHideFlags: 1

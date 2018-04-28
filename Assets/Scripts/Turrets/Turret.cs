@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Assets.Scripts.Data;
+using Assets.Scripts.Sound;
 using UnityEngine;
 
 namespace Assets.Scripts.Turrets
@@ -17,7 +18,8 @@ namespace Assets.Scripts.Turrets
 
         public TurretInfo Info;
 
-        [Header("Fire Mode")] public ActivationType FireMode;
+        [Header("Fire Mode")]
+        public ActivationType FireMode;
         [Tooltip("Delay between firing. If burst > 1 then it is a delay between bursts")]
         public float Cooldown = 1f;
 
@@ -31,6 +33,9 @@ namespace Assets.Scripts.Turrets
         public float CooldownPercentage { get { return Mathf.Clamp01(1 - _timeSinceLastActivation / Cooldown); } }
         public Vector2Int GridCoords { get; private set; }
         public Direction Direction { get { return _aoe.Direction; } }
+
+        [Header("Audio")]
+        public AudioClipWithVolume FireSound;
 
         public event Action OnFire;
 
@@ -79,7 +84,11 @@ namespace Assets.Scripts.Turrets
                         _burstCd = 0f;
 
                         if (OnFire != null)
+                        {
                             OnFire();
+                            if(FireSound != null)
+                                AudioManager.Instance.PlayClip(transform.position, FireSound);
+                        }
 
                         if (_burstsDone >= Burst)
                         {

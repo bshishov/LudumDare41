@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Data;
+using Assets.Scripts.Sound;
 using Assets.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.AI;
@@ -16,6 +17,9 @@ namespace Assets.Scripts
         public InfiniteWave InfiniteWave;
         public float TimeBetweenWaves = 20f;
         public int StartDifficulty = 1;
+
+        [Header("Audio")]
+        public AudioClipWithVolume WaveStartedSound;
 
         public Wave CurrentWave { get; private set; }
         public bool WaveInProgress { get; private set; }
@@ -78,6 +82,10 @@ namespace Assets.Scripts
                 CurrentWave = Waves[_currentWaveIndex];
                 StartCoroutine(DoWave(CurrentWave));
             }
+
+            if(WaveStartedSound != null)
+                AudioManager.Instance.PlayClip(WaveStartedSound);
+
         }
 
         private void SpawnEnemy(Transform spawnPoint, GameObject prefab)

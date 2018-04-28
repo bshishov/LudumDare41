@@ -1415,6 +1415,36 @@ Prefab:
       propertyPath: RotationSpeed
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 114746746211906452, guid: 930f795366d378047a251ef22059ccd3,
+        type: 2}
+      propertyPath: SoulPickupSound.Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a2e1eca29ece097428cfccac465c9a7c, type: 3}
+    - target: {fileID: 114746746211906452, guid: 930f795366d378047a251ef22059ccd3,
+        type: 2}
+      propertyPath: SoulPickupSound.VolumeModifier
+      value: 0.802
+      objectReference: {fileID: 0}
+    - target: {fileID: 114746746211906452, guid: 930f795366d378047a251ef22059ccd3,
+        type: 2}
+      propertyPath: ErrorSound.Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4781f1e92dc9b2342be4debf44284965, type: 3}
+    - target: {fileID: 114746746211906452, guid: 930f795366d378047a251ef22059ccd3,
+        type: 2}
+      propertyPath: ErrorSound.VolumeModifier
+      value: 0.217
+      objectReference: {fileID: 0}
+    - target: {fileID: 114746746211906452, guid: 930f795366d378047a251ef22059ccd3,
+        type: 2}
+      propertyPath: PlaceTurretSound.Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e27c4d3467767a44b9106fcc6eabdd08, type: 3}
+    - target: {fileID: 114746746211906452, guid: 930f795366d378047a251ef22059ccd3,
+        type: 2}
+      propertyPath: PlaceTurretSound.VolumeModifier
+      value: 0.72
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 930f795366d378047a251ef22059ccd3, type: 2}
   m_IsPrefabParent: 0
@@ -2318,6 +2348,7 @@ MonoBehaviour:
   InfiniteWave: {fileID: 11400000, guid: e95cfda4359083045a9410cd92cae98b, type: 2}
   TimeBetweenWaves: 30
   StartDifficulty: 1
+  WaveStartedSound: {fileID: 8300000, guid: baf43307f5f5d0c4badf06583904b4ea, type: 3}
 --- !u!4 &989964159 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4418319054026744, guid: e776c1f9ec296c346a43c08a08990abf,
@@ -3261,6 +3292,7 @@ GameObject:
   - component: {fileID: 1368199589}
   - component: {fileID: 1368199593}
   - component: {fileID: 1368199594}
+  - component: {fileID: 1368199595}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3358,6 +3390,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: cb413a5944c35ce4fa69932a335e3ade, type: 2}
+--- !u!114 &1368199595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1368199588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1646456f52a4646ac6ef49653282c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ost: {fileID: 0}
+  Proximity: 60
 --- !u!1001 &1380429033
 Prefab:
   m_ObjectHideFlags: 0

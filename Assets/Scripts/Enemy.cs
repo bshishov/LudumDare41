@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Data;
+using Assets.Scripts.Sound;
 using Assets.Scripts.UI;
 using UnityEngine;
 using UnityEngine.AI;
@@ -17,6 +18,10 @@ namespace Assets.Scripts
         public float MaxHp = 10;
         public int DropSouls = 1;
         public GameObject SoulPrefab;
+
+        [Header("Audio")]
+        public AudioClipWithVolume TakeDamageSound;
+
         public float CurrentHp { get; private set; }
         
         private Buffable _buffable;
@@ -84,6 +89,9 @@ namespace Assets.Scripts
 
             if (CurrentHp > 0)
             {
+                if(TakeDamageSound != null)
+                    AudioManager.Instance.PlayClip(transform.position, TakeDamageSound);
+
                 CurrentHp -= amount;
                 if (CurrentHp < 1f)
                     Die();

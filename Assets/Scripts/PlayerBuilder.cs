@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Assets.Scripts.Data;
+using Assets.Scripts.Sound;
 using Assets.Scripts.Turrets;
 using Assets.Scripts.UI;
 using UnityEngine;
@@ -26,7 +27,16 @@ namespace Assets.Scripts
         public string RotateButton;
         public string DestroyButton;
 
-        [Header("Misc")] public Text ResourceText;
+        [Header("Misc")]
+        public Text ResourceText;
+
+        [Header("Audio")]
+        public AudioClipWithVolume OpenBuildingMenu;
+        public AudioClipWithVolume SoulPickupSound;
+        public AudioClipWithVolume PlaceTurretSound;
+        public AudioClipWithVolume DestroyTurretSound;
+        public AudioClipWithVolume RotateTurretSound;
+        public AudioClipWithVolume ErrorSound;
 
         private Animator _animator;
         private CharacterController _characterController;
@@ -90,11 +100,16 @@ namespace Assets.Scripts
                     if (CanPlace())
                     {
                         _playerController.IsLocked = true;
+                        if(OpenBuildingMenu != null)
+                            AudioManager.Instance.PlayClip(OpenBuildingMenu);
                         UIBuildingMenu.Instance.Show();
                     }
                     else
                     {
                         UINotifications.Instance.Show(transform, "Can't build here", Color.red, yOffset: 2f);
+
+                        if (ErrorSound != null)
+                            AudioManager.Instance.PlayClip(ErrorSound);
                     }
                 }
 
@@ -112,7 +127,12 @@ namespace Assets.Scripts
             if (Input.GetButtonDown(RotateButton))
             {
                 if (turret != null)
+                {
                     turret.ChangeDirection();
+
+                    if(RotateTurretSound != null)
+                        AudioManager.Instance.PlayClip(RotateTurretSound);
+                }
             }
 
             if (Input.GetButtonDown(DestroyButton))
@@ -128,6 +148,9 @@ namespace Assets.Scripts
                 UINotifications.Instance.Show(transform, amount.ToString(), Color.cyan, yOffset: 2f);
                 Resource += amount;
                 UpdateResourceUI();
+
+                if(SoulPickupSound != null)
+                    AudioManager.Instance.PlayClip(SoulPickupSound);
             }
         }
 
@@ -148,12 +171,19 @@ namespace Assets.Scripts
             if (Resource < activeSelection.Cost)
             {
                 UINotifications.Instance.Show(transform, "Not enough souls", Color.red, yOffset: 2f);
+
+                if (ErrorSound != null)
+                    AudioManager.Instance.PlayClip(ErrorSound);
+
                 return;
             }
 
             if (!CanPlace())
             {
                 UINotifications.Instance.Show(transform, "Turret can't be placed here", Color.red, yOffset: 2f);
+
+                if (ErrorSound != null)
+                    AudioManager.Instance.PlayClip(ErrorSound);
                 return;
             }
 
@@ -165,6 +195,9 @@ namespace Assets.Scripts
                 Resource -= activeSelection.Cost;
                 UpdateResourceUI();
                 _animator.SetTrigger("Cast");
+                
+                if(PlaceTurretSound != null)
+                    AudioManager.Instance.PlayClip(PlaceTurretSound);
             }
         }
 
@@ -227,6 +260,9 @@ namespace Assets.Scripts
 
                 Destroy(t.gameObject);
                 _placedTurrets.Remove(coords);
+
+                if (DestroyTurretSound != null)
+                    AudioManager.Instance.PlayClip(transform.position, DestroyTurretSound);
             }
         }
 
