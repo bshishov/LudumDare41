@@ -16,6 +16,7 @@ namespace Assets.Scripts.UI
 
         public void LoadScene(string scene)
         {
+            Time.timeScale = 1f;
             SceneManager.LoadScene(scene);
         }
 

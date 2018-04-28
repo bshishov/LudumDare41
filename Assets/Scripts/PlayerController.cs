@@ -22,14 +22,11 @@ namespace Assets.Scripts
         private float _movingRadius;
         private float _currentGroundedDelay;
 
-        private float _verticalSpeed;
         private Vector3 _movingVector = new Vector3(0f, 0f, 0f);
 
-        public Vector3 MovingVector
-        {
-            get { return _movingVector; }
-        }
-    
+        public Vector3 MovingVector { get { return _movingVector; } }
+        public float VerticalSpeed;
+
         void Start()
         {
             _controller = GetComponent<CharacterController>();
@@ -79,47 +76,52 @@ namespace Assets.Scripts
         {
             var isGrounded = Physics.Raycast(transform.TransformPoint(_controller.center), Vector3.down, _controller.height * 0.8f,
                 LayerMask.GetMask(Layers.Platform));
+            var isCeilinged = Physics.Raycast(transform.TransformPoint(_controller.center), Vector3.up, _controller.height * 1.8f,
+                LayerMask.GetMask(Layers.Platform));
             //var isGroundedCircle = Physics.SphereCast(transform.TransformPoint(_controller.center), _controller.radius * 1.1, Vector3.down);
+
+            var jump = Input.GetAxis("Jump") + Input.GetAxis("Vertical");
+            if (IsLocked)
+                jump = 0f;
+
             //if (_controller.collisionFlags == CollisionFlags.Below)
             //if (_controller.isGrounded || _currentGroundedDelay < IsGroundedDelay)
-            if(isGrounded)
+            if (isGrounded)
             {
-                _verticalSpeed = 0f;
-                var jump = Input.GetAxis("Jump");
-                if (IsLocked)
-                    jump = 0f;
+                VerticalSpeed = 0f;
+
                 if (jump > 0)
                 {
-                    _verticalSpeed = InitialJumpSpeed;
+                    VerticalSpeed = InitialJumpSpeed;
                 }
             }
-            else if (_controller.collisionFlags == CollisionFlags.Above)
+            else if (_controller.collisionFlags == CollisionFlags.CollidedAbove)
+            //else if (isCeilinged)
             {
-                _verticalSpeed = 0f;
+                VerticalSpeed = 0f;
             }
             else
             {
-                var jump = Input.GetAxis("Jump");
-                if (IsLocked)
-                    jump = 0f;
                 if (jump > 0)
                 {
-                    _verticalSpeed += JumpHoldSpeed;
+                    VerticalSpeed += JumpHoldSpeed;
                 }
             }
         
             var verticalChange = Physics.gravity.y * Time.deltaTime;
-            _verticalSpeed += verticalChange;
+            VerticalSpeed += verticalChange;
         
-            _controller.Move(new Vector3(0, _verticalSpeed * Time.deltaTime, 0)); // падаем
+            _controller.Move(new Vector3(0, VerticalSpeed * Time.deltaTime, 0)); // падаем
         }
 
         void Rotate()
         {
-            if (_movingVector.magnitude <= 0.01f) return;
+            var targetRotation = _movingVector.normalized;
+            if (_movingVector.magnitude <= 0.01f)
+                targetRotation = -Camera.main.transform.forward;
 
             transform.rotation = Quaternion.Lerp(transform.rotation,
-                Quaternion.LookRotation(_movingVector.normalized),
+                Quaternion.LookRotation(targetRotation),
                 RotationSpeed);
         }
     }
