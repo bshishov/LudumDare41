@@ -72,6 +72,8 @@ GameObject:
   - component: {fileID: 195920752951877326}
   - component: {fileID: 114612679949935030}
   - component: {fileID: 114119719487545258}
+  - component: {fileID: 135620600341616218}
+  - component: {fileID: 114415701688253080}
   m_Layer: 0
   m_Name: Enemy_Overseer
   m_TagString: Enemy
@@ -208,6 +210,21 @@ MonoBehaviour:
   MaxHp: 50
   DropSouls: 50
   SoulPrefab: {fileID: 1018221541414438, guid: 41e1ff1a44cd73146b62eaa8fb25c6d3, type: 2}
+--- !u!114 &114415701688253080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1980097644909662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce43014087079b4fae3c244e53eb317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoolDown: 1
+  Buff: {fileID: 11400000, guid: 70df31e9f31e80644bb1348d5c17c4fe, type: 2}
+  BuffSelf: 0
+  Target: Enemy
 --- !u!114 &114612679949935030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -220,6 +237,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackModifiers: []
+--- !u!135 &135620600341616218
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1980097644909662}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &137476735153328128
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -26,9 +26,6 @@ namespace Assets.Scripts.Turrets
             if (Projectile == null)
                 return;
 
-            if (_aoe.ObjectsInAoE == null || _aoe.ObjectsInAoE.Count == 0)
-                return;
-
             var projectileObj = GameObject.Instantiate(Projectile, transform.TransformPoint(SourcePoint), Quaternion.identity);
             var pathFollow = projectileObj.GetComponent<PathFollow>();
             if (pathFollow != null)
