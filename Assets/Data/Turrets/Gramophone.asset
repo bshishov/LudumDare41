@@ -15,6 +15,6 @@ MonoBehaviour:
   Description: Plays music in chosen direction to harm enemies for 80 damage
   Icon: {fileID: 21300020, guid: 7b4053aed1a8e9c4198b8ab635f81185, type: 3}
   Prefab: {fileID: 1571110524126784, guid: c56d591fe6305d94db12329284ddc71b, type: 2}
-  Cost: 500
+  Cost: 1000
   Cooldown: 0
   PositionInBuildingMenu: {x: 2, y: 2}

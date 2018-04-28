@@ -1398,7 +1398,7 @@ Prefab:
     - target: {fileID: 114746746211906452, guid: 930f795366d378047a251ef22059ccd3,
         type: 2}
       propertyPath: Cashback
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 114545131934673528, guid: 930f795366d378047a251ef22059ccd3,
         type: 2}
