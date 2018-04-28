@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Data;
+﻿using System;
+using Assets.Scripts.Data;
 using Assets.Scripts.Utils;
 using UnityEngine;
 
@@ -15,7 +16,9 @@ namespace Assets.Scripts
 
         [SerializeField]
         public Effect[] HitEffects;
-        public float DamageMultiplier;
+
+        [NonSerialized]
+        public float DamageMultiplier = 1f;
 
         void Start ()
         {
@@ -30,7 +33,7 @@ namespace Assets.Scripts
                 if (enemy != null)
                 {
                     foreach (var hitEffect in HitEffects)
-                        enemy.ApplyEffect(hitEffect);
+                        enemy.ApplyEffect(hitEffect, DamageMultiplier);
                 }
 
                 if (DestroyOnHit)

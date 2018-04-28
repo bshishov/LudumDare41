@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -26,15 +27,15 @@ namespace Assets.Scripts
 
             var a = Path[_aIndex];
             var b = Path[_aIndex + 1];
-            var d = Vector3.Distance(a, b);
-
-            _t += Speed * Time.deltaTime / d;
+            var dir = b - a;
+            _t += Speed * Time.deltaTime / dir.magnitude;
 
             transform.position = Vector3.Lerp(a, b, _t);
+            transform.rotation = Quaternion.LookRotation(dir.normalized);
 
             if (_t > 1f)
             {
-                _t = 0f;
+                _t = _t - 1f;
                 _aIndex += 1;
             }
         }

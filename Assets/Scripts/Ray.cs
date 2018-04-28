@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Assets.Scripts.Data;
 using Assets.Scripts.Utils;
 using UnityEngine;
@@ -18,7 +19,8 @@ namespace Assets.Scripts
         [SerializeField]
         public List<Effect> HitEffects;
 
-        public float DamageMultiplier;
+        [NonSerialized]
+        public float DamageMultiplier = 1f;
 
         void Start()
         {
@@ -49,7 +51,7 @@ namespace Assets.Scripts
                         {
                             foreach (var hitEffect in HitEffects)
                             {
-                                enemy.ApplyEffect(hitEffect);
+                                enemy.ApplyEffect(hitEffect, DamageMultiplier);
                             }
                         }
                     }

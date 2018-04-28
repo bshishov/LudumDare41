@@ -25,7 +25,8 @@
 
 		Pass
 		{
-			//ZWrite On									
+			//ZWrite On			
+			ZTest Always
 			Blend SrcAlpha OneMinusSrcAlpha
 			//Blend One OneMinusSrcAlpha
 			//Blend [_SrcBlend] [_DstBlend]

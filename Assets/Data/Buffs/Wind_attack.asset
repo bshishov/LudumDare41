@@ -15,8 +15,8 @@ MonoBehaviour:
   Duration: 1
   TickRate: 0.1
   DamageModifier: 0
-  CooldownModifier: 0
-  SpeedModifier: 0.5
+  CooldownModifier: -0.5
+  SpeedModifier: 0
   HpModifier: 0
   OnApplyEffects: []
   OnTickEffects: []

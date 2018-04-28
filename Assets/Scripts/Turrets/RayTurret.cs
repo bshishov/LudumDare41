@@ -34,14 +34,17 @@ namespace Assets.Scripts.Turrets
             var ray = rayObj.GetComponent<Ray>();
             if (ray != null)
             {
-                var path = _aoe.ActivePath.ToArray();
-                path[0] = transform.TransformPoint(SourcePoint);
-                ray.SetPath(path, _aoe);
+                ray.DamageMultiplier = _buffable.DamageMultiplier;
 
-                if(_buffable.AttackModifiers.Count > 0)
+                if (_buffable.AttackModifiers.Count > 0)
                     ray.HitEffects.AddRange(_buffable.AttackModifiers);
 
-                ray.DamageMultiplier = _buffable.DamageMultiplier;
+                var path = _aoe.ActivePath.ToArray();
+                path[0] = transform.TransformPoint(SourcePoint);
+
+                // THIS CALL SHOULD BE THE LAST
+                // otherwise it will not apply damage multipliers and attack modifiers
+                ray.SetPath(path, _aoe);
             }
         }
 

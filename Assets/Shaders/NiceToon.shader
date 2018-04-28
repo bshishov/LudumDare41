@@ -10,7 +10,7 @@
 
 	SubShader
 	{
-		Tags{ "RenderType" = "Transparent" "Queue" = "Geometry" "IgnoreProjector" = "True" }
+		Tags{ "RenderType" = "Transparent" "Queue" = "Geometry" "IgnoreProjector" = "True" }		
 		
 		Pass{
 			Stencil
@@ -122,13 +122,14 @@
 
 			Stencil {
 				Ref 64
-				Comp NotEqual
+				Comp NotEqual		
+				ZFail Zero
 			}
 		
 			Blend SrcAlpha OneMinusSrcAlpha
 			//Cull Off
 			Cull Back
-			ZWrite Off			
+			ZWrite On			
 
 			CGPROGRAM
 			#pragma vertex vert

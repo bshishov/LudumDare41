@@ -361,7 +361,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4118049297523748, guid: a180a7c79b435894088d129a81d1054f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.4
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4118049297523748, guid: a180a7c79b435894088d129a81d1054f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2466,15 +2466,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4118049297523748, guid: a180a7c79b435894088d129a81d1054f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -16.4
+      value: -19.26
       objectReference: {fileID: 0}
     - target: {fileID: 4118049297523748, guid: a180a7c79b435894088d129a81d1054f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.65
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 4118049297523748, guid: a180a7c79b435894088d129a81d1054f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -59.77
+      value: -60.75
       objectReference: {fileID: 0}
     - target: {fileID: 4118049297523748, guid: a180a7c79b435894088d129a81d1054f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -3305,7 +3305,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: -1
+  m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
@@ -4980,11 +4980,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4118049297523748, guid: a180a7c79b435894088d129a81d1054f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.74045
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4118049297523748, guid: a180a7c79b435894088d129a81d1054f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -56.15
+      value: -56.5
       objectReference: {fileID: 0}
     - target: {fileID: 4118049297523748, guid: a180a7c79b435894088d129a81d1054f, type: 2}
       propertyPath: m_LocalRotation.x

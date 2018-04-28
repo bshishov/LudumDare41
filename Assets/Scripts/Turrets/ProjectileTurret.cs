@@ -29,7 +29,7 @@ namespace Assets.Scripts.Turrets
             if (_aoe.ObjectsInAoE == null || _aoe.ObjectsInAoE.Count == 0)
                 return;
 
-            var projectileObj = GameObject.Instantiate(Projectile, transform.position, Quaternion.identity);
+            var projectileObj = GameObject.Instantiate(Projectile, transform.TransformPoint(SourcePoint), Quaternion.identity);
             var pathFollow = projectileObj.GetComponent<PathFollow>();
             if (pathFollow != null)
             {
@@ -45,7 +45,7 @@ namespace Assets.Scripts.Turrets
             {
                 if (_buffable.AttackModifiers.Count > 0)
                     projectile.HitEffects.AddRange(_buffable.AttackModifiers);
-
+                
                 projectile.DamageMultiplier = _buffable.DamageMultiplier;
             }
         }

@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 195314618648604794}
   - component: {fileID: 114972914166169378}
   - component: {fileID: 143869852842208196}
+  - component: {fileID: 114719020799821116}
   m_Layer: 0
   m_Name: Dummy
   m_TagString: Enemy
@@ -86,6 +87,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1076902683731900}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114719020799821116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1076902683731900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c63823046251b43b473ab0d27d3cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114962990371769874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseSpeed: 3.5
   LadderSpeed: 0.5
-  MaxHp: 1000
+  MaxHp: 10000
   DropSouls: 1
   SoulPrefab: {fileID: 1018221541414438, guid: 41e1ff1a44cd73146b62eaa8fb25c6d3, type: 2}
 --- !u!143 &143869852842208196
