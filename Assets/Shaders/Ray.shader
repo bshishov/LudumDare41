@@ -7,7 +7,7 @@
 	}
 	SubShader
 	{
-		Tags{ "Queue" = "Transparent+1" "IgnoreProjector" = "True" "RenderType" = "TransparentCutout" }
+		Tags{ "Queue" = "Transparent+1" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
 		LOD 200
 		Blend SrcAlpha OneMinusSrcAlpha
 		AlphaTest Greater .01
@@ -65,9 +65,9 @@
 				fixed4 dist = fixed4(1,1,1,1) - col;
 				fixed l = sqrt(length(dist));
 				col.rgb = fixed3(1, 1, 1) * (1 - l) + _TintColor.xyz * l;
-				//col.rgb = i.color.xyz;
 				col.rgb *= i.color.xyz;
-				col.a = 2 * a * i.color.a * a;				
+				col.a = a * i.color.a;
+
 				return col;
 			}
 			ENDCG
