@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9709332ba0eca24c8020f3ec356e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Info: {fileID: 0}
+  Info: {fileID: 11400000, guid: 298488a76ff9392498576d4779b0a057, type: 2}
   FireMode: 0
   Cooldown: 3
   BurstDelay: 0.5
