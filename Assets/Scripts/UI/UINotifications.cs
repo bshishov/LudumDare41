@@ -22,9 +22,7 @@ namespace Assets.Scripts.UI
             if(NotificationPrefab == null)   
                 return;
 
-            //var go = GameObject.Instantiate(NotificationPrefab, gameObject.transform, true);
-            var go = GameObject.Instantiate(NotificationPrefab);
-            go.transform.SetParent(gameObject.transform, false);
+            var go = GameObject.Instantiate(NotificationPrefab, gameObject.transform, false);
             var notification = go.GetComponent<UINotification>();
             notification.FadeTime = time;
             notification.Text.text = text;

@@ -13,7 +13,9 @@ namespace Assets.Scripts
         public List<Transform> SpawnPoints;
         public GameObject Target;
         public List<Wave> Waves;
+        public InfiniteWave InfiniteWave;
         public float TimeBetweenWaves = 20f;
+        public int StartDifficulty = 1;
 
         public Wave CurrentWave { get; private set; }
         public bool WaveInProgress { get; private set; }
@@ -21,7 +23,9 @@ namespace Assets.Scripts
         public int EnemiesOut { get; private set; }
         public int EnemiesInThisWave { get; private set; }
         public float TimeToNextWave { get; private set; }
-
+        public int CurrentDifficulty { get; private set; }
+        public bool IsRunningInfinite { get; private set; }
+        
         public float Percentage
         {
             get
@@ -36,12 +40,13 @@ namespace Assets.Scripts
 
         void Start()
         {
+            CurrentDifficulty = StartDifficulty;
             NextWave();
         }
 
         void Update()
         {
-            if (!WaveInProgress && _currentWaveIndex < Waves.Count)
+            if (!WaveInProgress)
             {
                 TimeToNextWave -= Time.deltaTime;
                 if (TimeToNextWave < 0)
@@ -63,14 +68,16 @@ namespace Assets.Scripts
             _currentWaveIndex++;
             if (_currentWaveIndex >= Waves.Count)
             {
-                Debug.LogWarning("No more waves");
-                return;
+                if (InfiniteWave != null)
+                    StartCoroutine(DoInfiniteWave(InfiniteWave));
+                else
+                    Debug.LogWarning("No more waves");
             }
-                
-            CurrentWave = Waves[_currentWaveIndex];
-            EnemiesOut = 0;
-            EnemiesInThisWave = CurrentWave.TotalNumberOfEnemies(SpawnPoints.Count);
-            StartCoroutine(DoWave(CurrentWave));
+            else
+            {
+                CurrentWave = Waves[_currentWaveIndex];
+                StartCoroutine(DoWave(CurrentWave));
+            }
         }
 
         private void SpawnEnemy(Transform spawnPoint, GameObject prefab)
@@ -85,7 +92,6 @@ namespace Assets.Scripts
         {
             if (spawnerIndex < 0 || spawnerIndex > SpawnPoints.Count - 1)
             {
-                Debug.LogFormat("SpawnerIndex is {0}. Spawning on both waves", spawnerIndex);
                 foreach (var spawnPoint in SpawnPoints)
                     SpawnEnemy(spawnPoint, prefab);
             }
@@ -97,8 +103,10 @@ namespace Assets.Scripts
 
         private IEnumerator DoWave(Wave wave)
         {
-            Debug.LogFormat("Wave {0}/{1} started!", WaveNumber, Waves.Count);
             WaveInProgress = true;
+            EnemiesOut = 0;
+            EnemiesInThisWave = CurrentWave.TotalNumberOfEnemies(SpawnPoints.Count);
+            Debug.LogFormat("Wave {0}/{1} started!", WaveNumber, Waves.Count);
             
             foreach (var spawnEntry in wave.Items)
             {
@@ -115,6 +123,49 @@ namespace Assets.Scripts
             }
             WaveInProgress = false;
             Debug.LogFormat("Wave {0}/{1} ended!", WaveNumber, Waves.Count);
+            TimeToNextWave = this.TimeBetweenWaves;
+            EnemiesInThisWave = 0;
+        }
+
+        private IEnumerator DoInfiniteWave(InfiniteWave wave)
+        {
+            EnemiesOut = 0;
+            EnemiesInThisWave = wave.TotalNumberOfEnemies(SpawnPoints.Count, CurrentDifficulty);
+            IsRunningInfinite = true;
+            WaveInProgress = true;
+
+            Debug.LogFormat("Infinite wave: Difficulty {0}", CurrentDifficulty);
+            
+            foreach (var pack in wave.Packs)
+            {
+                if (pack.Difficulty >= CurrentDifficulty)
+                    continue;
+
+                var spawnPackTimes = Mathf.Min(CurrentDifficulty - pack.Difficulty, pack.MaxNumber);
+
+                for (var packI = 0; packI < spawnPackTimes; packI++)
+                {
+                    foreach (var spawnEntry in pack.Items)
+                    {
+                        if (spawnEntry.EnemyPrefab == null || spawnEntry.NumberOfThisType == 0)
+                            continue;
+
+                        for (var i = 0; i < spawnEntry.NumberOfThisType; i++)
+                        {
+                            SpawnEnemy(spawnEntry.SpawnIndex, spawnEntry.EnemyPrefab);
+                            yield return new WaitForSeconds(spawnEntry.DelayBetween);
+                        }
+
+                        yield return new WaitForSeconds(spawnEntry.DelayBeforeNext);
+                    }
+
+                    yield return new WaitForSeconds(pack.DelayBeforeNextPack);
+                }
+            }
+
+            CurrentDifficulty += 1;
+            WaveInProgress = false;
+            Debug.LogFormat("Difficulty increased: {0}", CurrentDifficulty);
             TimeToNextWave = this.TimeBetweenWaves;
             EnemiesInThisWave = 0;
         }

@@ -2315,7 +2315,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cb9ff809548271b4ba0955fdeef56b7b, type: 2}
   - {fileID: 11400000, guid: 7d3e1a30052f2cb438a81b98ad246e4f, type: 2}
   - {fileID: 11400000, guid: 698f3a0c3eb786a4b8510dc0b14cf293, type: 2}
+  InfiniteWave: {fileID: 11400000, guid: e95cfda4359083045a9410cd92cae98b, type: 2}
   TimeBetweenWaves: 30
+  StartDifficulty: 1
 --- !u!4 &989964159 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4418319054026744, guid: e776c1f9ec296c346a43c08a08990abf,

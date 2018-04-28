@@ -11,8 +11,10 @@ namespace Assets.Scripts.UI
         public Vector3 OffsetSpeed = Vector3.up;
         public Transform Target;
 
-        void Start ()
+        void Start()
         {
+            transform.position = new Vector3(-1000, -1000, 0);
+
             Destroy(gameObject, FadeTime);
             Text.CrossFadeAlpha(0f, FadeTime, true);
 
