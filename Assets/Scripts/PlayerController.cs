@@ -46,6 +46,7 @@ namespace Assets.Scripts
                 _currentGroundedDelay = 0;
 
             _movingVector = Vector3.zero;
+
             CheckSideMoving();
             CheckJump();
             Move();
@@ -67,49 +68,54 @@ namespace Assets.Scripts
 
             var moveToFromCenter = transform.position + _movingVector - new Vector3(_movingCenter.x, transform.position.y, _movingCenter.z);
             moveToFromCenter = moveToFromCenter.normalized * _movingRadius;
-            _movingVector = new Vector3(_movingCenter.x, transform.position.y, _movingCenter.z) + moveToFromCenter - transform.position;
+            _movingVector = new Vector3(_movingCenter.x, 0, _movingCenter.z) + moveToFromCenter - transform.position;
 
+            _movingVector.y = 0f;
             _controller.Move(_movingVector);
         }
 
         void CheckJump()
         {
-            var isGrounded = Physics.Raycast(transform.TransformPoint(_controller.center), Vector3.down, _controller.height * 0.8f,
+            var isGrounded = Physics.Raycast(transform.TransformPoint(_controller.center), Vector3.down, _controller.height * 0.6f,
                 LayerMask.GetMask(Layers.Platform));
-            var isCeilinged = Physics.Raycast(transform.TransformPoint(_controller.center), Vector3.up, _controller.height * 1.8f,
+            var isCeilinged = Physics.Raycast(transform.TransformPoint(_controller.center), Vector3.up, _controller.height * 0.6f,
                 LayerMask.GetMask(Layers.Platform));
             //var isGroundedCircle = Physics.SphereCast(transform.TransformPoint(_controller.center), _controller.radius * 1.1, Vector3.down);
+            
+            // сначала рассчитываем изменение вертикальной скорости
+            var verticalChange = Physics.gravity.y * Time.deltaTime;
+            VerticalSpeed += verticalChange;
 
-            var jump = Input.GetAxis("Jump") + Input.GetAxis("Vertical");
+            var jump = Input.GetButtonDown("Jump");
             if (IsLocked)
-                jump = 0f;
-
-            //if (_controller.collisionFlags == CollisionFlags.Below)
-            //if (_controller.isGrounded || _currentGroundedDelay < IsGroundedDelay)
+                jump = false;
+            
+            //if ((_controller.collisionFlags & CollisionFlags.Below) != 0)
+            //if (!jump && _controller.isGrounded && _currentGroundedDelay < IsGroundedDelay)
             if (isGrounded)
             {
                 VerticalSpeed = 0f;
 
-                if (jump > 0)
+                // если прыжок был - сразу подпрыгиваем
+                if (jump)
                 {
                     VerticalSpeed = InitialJumpSpeed;
                 }
             }
-            else if (_controller.collisionFlags == CollisionFlags.CollidedAbove)
-            //else if (isCeilinged)
+//            else
+//            {
+//                // ?
+//                if (jump)
+//                {
+//                    VerticalSpeed += JumpHoldSpeed;
+//                }
+//            }
+            
+            //if ((_controller.collisionFlags & (CollisionFlags.Above | CollisionFlags.Sides)) != 0)
+            if (isCeilinged && VerticalSpeed > 0)
             {
                 VerticalSpeed = 0f;
             }
-            else
-            {
-                if (jump > 0)
-                {
-                    VerticalSpeed += JumpHoldSpeed;
-                }
-            }
-        
-            var verticalChange = Physics.gravity.y * Time.deltaTime;
-            VerticalSpeed += verticalChange;
         
             _controller.Move(new Vector3(0, VerticalSpeed * Time.deltaTime, 0)); // падаем
         }
