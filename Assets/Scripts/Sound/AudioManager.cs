@@ -16,10 +16,10 @@ namespace Assets.Scripts.Sound
 
         public float MusicVolume
         {
-            get { return _musicAudioSource.volume; }
+            get { return _musicAudioSource.volume * 2; }
             set
             {
-                _musicAudioSource.volume = value;
+                _musicAudioSource.volume = value * 0.5f;
                 PlayerPrefs.SetFloat(MusicVolumeKey, value);
             }
         }
@@ -37,7 +37,7 @@ namespace Assets.Scripts.Sound
         void Start ()
         {
             _musicAudioSource = gameObject.AddComponent<AudioSource>();
-            _musicAudioSource.volume = PlayerPrefs.GetFloat(MusicVolumeKey, 0.1f);
+            _musicAudioSource.volume = PlayerPrefs.GetFloat(MusicVolumeKey, 0.2f) * 0.5f;
 
             _soundsAudioSource = gameObject.AddComponent<AudioSource>();
             _soundsAudioSource.volume = PlayerPrefs.GetFloat(SoundVolumeKey, 1f);

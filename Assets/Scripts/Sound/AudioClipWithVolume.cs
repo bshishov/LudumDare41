@@ -8,7 +8,7 @@ namespace Assets.Scripts.Sound
     {
         public AudioClip Clip;
 
-        [Range(0f, 1f)]
+        [Range(0f, 1.5f)]
         public float VolumeModifier = 1f;
 
         public bool RandomizePitch = false;

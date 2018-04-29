@@ -3731,7 +3731,6 @@ MonoBehaviour:
   - {fileID: 1006660978}
   Target: {fileID: 956750104}
   Waves:
-  - {fileID: 11400000, guid: 6d5a75627d7678846a879338b11977fa, type: 2}
   - {fileID: 11400000, guid: 932b5d9ae94e62544a0e9daf4a25a821, type: 2}
   - {fileID: 11400000, guid: e73e4302b4a3673429c99678705fccd5, type: 2}
   - {fileID: 11400000, guid: a6623f2508c2b404c8ea228026f1fa66, type: 2}

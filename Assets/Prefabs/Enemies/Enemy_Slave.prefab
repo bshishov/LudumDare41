@@ -196,7 +196,7 @@ MonoBehaviour:
   SoulPrefab: {fileID: 1018221541414438, guid: 41e1ff1a44cd73146b62eaa8fb25c6d3, type: 2}
   TakeDamageSound:
     Clip: {fileID: 8300000, guid: 510c0f1275b97b24c893a32d2bc0bcd7, type: 3}
-    VolumeModifier: 1
+    VolumeModifier: 1.5
     RandomizePitch: 1
 --- !u!114 &114957286192918656
 MonoBehaviour:

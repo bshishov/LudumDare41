@@ -12,7 +12,10 @@ namespace Assets.Scripts.Utils
         private GameObject _selectedObj;
 
         void Start()
-        { _selectedObj = EventSystem.current.currentSelectedGameObject; }
+        {
+            _selectedObj = EventSystem.current.currentSelectedGameObject;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
 
         void Update()
         {

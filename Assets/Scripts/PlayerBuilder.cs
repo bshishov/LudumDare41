@@ -216,8 +216,8 @@ namespace Assets.Scripts
             var cRight = c1 + Vector2Int.right;
 
             var pCenter = PlacementGrid.Instance.CenterOfCell(c1);
-            var pLeft = Vector3.Lerp(pCenter, PlacementGrid.Instance.CenterOfCell(cLeft), 0.4f);
-            var pRight = Vector3.Lerp(pCenter, PlacementGrid.Instance.CenterOfCell(cRight), 0.4f);
+            var pLeft = Vector3.Lerp(pCenter, PlacementGrid.Instance.CenterOfCell(cLeft), 0.45f);
+            var pRight = Vector3.Lerp(pCenter, PlacementGrid.Instance.CenterOfCell(cRight), 0.45f);
             
             if (!HitPlatform(pCenter))
                 return false;
@@ -231,7 +231,12 @@ namespace Assets.Scripts
 
         private bool HitPlatform(Vector3 p)
         {
-            return Physics.Raycast(p, Vector3.down, PlacementGrid.Instance.SegmentHeight * 0.6f, LayerMask.GetMask(Layers.Platform));
+            RaycastHit hit;
+            var res = Physics.Raycast(new UnityEngine.Ray(p, Vector3.down), out hit, PlacementGrid.Instance.SegmentHeight * 0.52f, LayerMask.GetMask(Layers.Platform));
+            if (!res)
+                return false;
+
+            return Vector3.Angle(hit.normal, Vector3.up) < 10;
         }
 
         private Turret TurretInRange()
