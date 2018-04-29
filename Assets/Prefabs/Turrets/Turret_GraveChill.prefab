@@ -252,8 +252,8 @@ MonoBehaviour:
   BurstDelay: 0.1
   Burst: 1
   FireSound:
-    Clip: {fileID: 8300000, guid: bd43443bca13f954389ab1dd2a1ec118, type: 3}
-    VolumeModifier: 0.939
+    Clip: {fileID: 8300000, guid: cae29fb1a925e5d4d8ddd911bf9bc1f7, type: 3}
+    VolumeModifier: 0.4
     RandomizePitch: 0
 --- !u!114 &114329113420054002
 MonoBehaviour:

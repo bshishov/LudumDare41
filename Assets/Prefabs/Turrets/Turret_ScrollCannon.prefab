@@ -349,7 +349,7 @@ MonoBehaviour:
   Burst: 1
   FireSound:
     Clip: {fileID: 8300000, guid: 73ead45962eb84c45b0e4facf54e60ca, type: 3}
-    VolumeModifier: 0.4
+    VolumeModifier: 0.3
     RandomizePitch: 0
 --- !u!136 &136590955149579098
 CapsuleCollider:

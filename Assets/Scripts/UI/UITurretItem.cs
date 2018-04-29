@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.Data;
+﻿using System.Runtime.Remoting.Messaging;
+using Assets.Scripts.Data;
+using Assets.Scripts.Sound;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -12,6 +14,9 @@ namespace Assets.Scripts.UI
         public Text Cooldown;
         public Text Cost;
         public Image Icon;
+
+        [Header("Audio")] public AudioClipWithVolume SelectedSound;
+
 
         public TurretInfo TurretInfo { get; private set; }
 
@@ -46,6 +51,8 @@ namespace Assets.Scripts.UI
         public void OnSelect(BaseEventData eventData)
         {
             UIBuildingMenu.Instance.ActiveSelection = TurretInfo;
+            if (SelectedSound != null)
+                AudioManager.Instance.PlayClip(SelectedSound);
         }
     }
 }

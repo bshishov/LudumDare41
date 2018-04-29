@@ -84,8 +84,7 @@ namespace Assets.Scripts
 
         public void TakeDamage(float amount)
         {
-            if(_renderer.isVisible)
-                UINotifications.Instance.Show(gameObject.transform, amount.ToString(), Color.red, yOffset: 2f);
+            UINotifications.Instance.Show(gameObject.transform, amount.ToString(), Color.red, yOffset: 2f);
 
             if (CurrentHp > 0)
             {

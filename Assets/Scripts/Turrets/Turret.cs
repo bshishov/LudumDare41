@@ -118,6 +118,9 @@ namespace Assets.Scripts.Turrets
                 if (OnFire != null)
                     OnFire();
 
+                if (FireSound != null)
+                    AudioManager.Instance.PlayClip(transform.position, FireSound);
+
                 _timeSinceLastActivation = 0;
             }
         }

@@ -200,6 +200,10 @@ MonoBehaviour:
   Cooldown: {fileID: 0}
   Cost: {fileID: 114925138139104400}
   Icon: {fileID: 114351737338272214}
+  SelectedSound:
+    Clip: {fileID: 8300000, guid: c25b14b5ca59443428de50875cc637aa, type: 3}
+    VolumeModifier: 0.7
+    RandomizePitch: 0
 --- !u!114 &114351737338272214
 MonoBehaviour:
   m_ObjectHideFlags: 1

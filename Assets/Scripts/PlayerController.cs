@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Sound;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -10,6 +11,8 @@ namespace Assets.Scripts
         public float JumpHoldSpeed = 0.01f;
         public GameObject Cylinder;
         public float IsGroundedDelay = 0.1f;
+
+        public AudioClipWithVolume JumpSound;
 
         [HideInInspector]
         public bool IsLocked = false;
@@ -100,6 +103,8 @@ namespace Assets.Scripts
                 if (jump)
                 {
                     VerticalSpeed = InitialJumpSpeed;
+                    if(JumpSound != null)
+                        AudioManager.Instance.PlayClip(JumpSound);
                 }
             }
 //            else

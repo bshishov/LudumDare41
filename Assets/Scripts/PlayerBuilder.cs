@@ -203,8 +203,8 @@ namespace Assets.Scripts
 
         private bool CanPlace()
         {
-            if (!_characterController.isGrounded)
-                return false;
+            //if (!_characterController.isGrounded)
+            //  return false;
 
             var c1 = PlacementGrid.Instance.WorldToCoords(transform.TransformPoint(ReferencePoint));
 
