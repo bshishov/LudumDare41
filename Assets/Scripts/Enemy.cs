@@ -99,10 +99,13 @@ namespace Assets.Scripts
 
         public void Heal(float amount)
         {
-            CurrentHp = Mathf.Max(CurrentHp + amount, MaxHp);
+            var lastCurHp = CurrentHp;
+            CurrentHp = Mathf.Max(lastCurHp + amount, MaxHp);
+
+            var healed = CurrentHp - lastCurHp;
 
             if (_renderer.isVisible)
-                UINotifications.Instance.Show(gameObject.transform, amount.ToString(), Color.green, yOffset: 2f);
+                UINotifications.Instance.Show(gameObject.transform, string.Format("+{0}", healed), Color.green, yOffset: 2f);
         }
 
         public void ApplyEffect(Effect effect, float damageMultiplier = 1f)

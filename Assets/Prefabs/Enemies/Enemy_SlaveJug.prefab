@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 195480825028304068}
   - component: {fileID: 114374220811119180}
   - component: {fileID: 114660203667823010}
+  - component: {fileID: 114534993068798010}
   m_Layer: 0
   m_Name: Enemy_SlaveJug
   m_TagString: Enemy
@@ -262,6 +263,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackModifiers: []
+--- !u!114 &114534993068798010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1167554545061500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae900571258abea4983cf0a1ce16ca4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cooldown: 60
+  Amount: 12
+  TriggerAnimation: Drink
 --- !u!114 &114660203667823010
 MonoBehaviour:
   m_ObjectHideFlags: 1

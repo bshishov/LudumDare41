@@ -16,13 +16,19 @@ namespace Assets.Scripts.Enemies
         [TagSelector]
         public string Target;
 
+        [Header("Animation")]
+        public string TriggerAnimation;
+
         private Buffable _selfBuffable;
         private List<Buffable> _aoeBuffables = new List<Buffable>();
         private float _t;
-        
+        private Animator _animator;
+
         void Start()
         {
+            _t = CoolDown;
             _selfBuffable = GetComponent<Buffable>();
+            _animator = GetComponent<Animator>();
         }
         
         void Update()
@@ -35,6 +41,9 @@ namespace Assets.Scripts.Enemies
                 
                 ApplyBuff();
                 _t = 0;
+
+                if (_animator != null && !string.IsNullOrEmpty(TriggerAnimation))
+                    _animator.SetTrigger(TriggerAnimation);
             }
         }
 

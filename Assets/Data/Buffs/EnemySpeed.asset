@@ -16,7 +16,7 @@ MonoBehaviour:
   TickRate: 0.1
   DamageModifier: 0
   CooldownModifier: 0
-  SpeedModifier: 0.9
+  SpeedModifier: 0.2
   HpModifier: 0
   OnApplyEffects: []
   OnTickEffects: []

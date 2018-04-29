@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 195414249389200708}
   - component: {fileID: 114158778722917568}
   - component: {fileID: 114678495218380008}
+  - component: {fileID: 114192548916912228}
   m_Layer: 0
   m_Name: Enemy_Boss
   m_TagString: Enemy
@@ -205,6 +206,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackModifiers: []
+--- !u!114 &114192548916912228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1997046493772292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae900571258abea4983cf0a1ce16ca4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cooldown: 20
+  Amount: 200
+  TriggerAnimation: 
 --- !u!114 &114678495218380008
 MonoBehaviour:
   m_ObjectHideFlags: 1

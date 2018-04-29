@@ -222,7 +222,7 @@ MonoBehaviour:
   Burst: 1
   FireSound:
     Clip: {fileID: 8300000, guid: 1343026cc3f7d064cb8ddc6c067c2f60, type: 3}
-    VolumeModifier: 0.2
+    VolumeModifier: 0.4
     RandomizePitch: 1
 --- !u!114 &114519104125467362
 MonoBehaviour:

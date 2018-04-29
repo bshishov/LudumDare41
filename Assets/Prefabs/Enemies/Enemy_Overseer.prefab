@@ -229,6 +229,7 @@ MonoBehaviour:
   Buff: {fileID: 11400000, guid: 70df31e9f31e80644bb1348d5c17c4fe, type: 2}
   BuffSelf: 0
   Target: Enemy
+  TriggerAnimation: Attack
 --- !u!114 &114612679949935030
 MonoBehaviour:
   m_ObjectHideFlags: 1
