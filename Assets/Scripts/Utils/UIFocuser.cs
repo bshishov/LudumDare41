@@ -14,6 +14,7 @@ namespace Assets.Scripts.Utils
         void Start()
         {
             _selectedObj = EventSystem.current.currentSelectedGameObject;
+            Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
 

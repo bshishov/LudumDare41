@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000108, guid: d9a4a7548fcc95a4599c28093fa952bb,
+  m_LightingDataAsset: {fileID: 112000128, guid: d9a4a7548fcc95a4599c28093fa952bb,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -5514,7 +5514,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: 3
+  m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
